@@ -119,9 +119,9 @@ const ShowPreviousCommands = ({ commands }: { commands: commandInterface[]}) => 
   return (
     <>
       {
-        commands.map((command: commandInterface) => {
+        commands.map((command: commandInterface, index: number) => {
           return (
-            <div>
+            <div key={index}>
               <p className="text-[#ff6932]">{command.location} <span className="text-gray-200">{command.command}</span></p>
               <p className="text-gray-200">{command.result}</p>
             </div>
