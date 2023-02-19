@@ -24,7 +24,7 @@ const SideBar = () => {
             orange = #ff6932*/}
       
       {/* first sidebar */}
-      <div className='flex flex-col justify-between bg-[#2E2E2E] h-screen'>
+      <div className='flex flex-col justify-between bg-[#2E2E2E]' style={{ maxHeight: "95vh" }}>
         <div className='flex flex-col space-y-4'>
             <div className='bg-[#ff6932]'>
                 <VscGithubAction className={styles.firstSideBarIcons} />  
@@ -45,7 +45,7 @@ const SideBar = () => {
         
         <TerminalModal isTerminalOpen={isTerminalOpen} setIsTerminalOpen={setIsTerminalOpen} />
         
-        <div className='mb-10 flex flex-col space-y-3'>
+        <div className=' flex flex-col space-y-3'>
           <IoTerminal onClick={() => setIsTerminalOpen(true)} className={styles.firstSideBarIcons} />
           <AiTwotoneSetting className={styles.firstSideBarIcons} />  
         </div>
