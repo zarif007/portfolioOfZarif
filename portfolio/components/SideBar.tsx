@@ -8,6 +8,9 @@ import { AiOutlineFacebook } from "react-icons/ai";
 import { IoTerminal } from "react-icons/io5";
 import { IoLogoInstagram } from "react-icons/io5";
 import TerminalModal from './TerminalModal';
+import { folderStructure } from './../folder-structure';
+import typescript_parrot from '../public/typescript_parrot.gif'
+import Image from "next/image";
 
 const SideBar = () => {
 
@@ -51,14 +54,37 @@ const SideBar = () => {
         </div>
       </div>
       
-
+          
       {/* 2nd sidebar */}
-      <div className='flex flex-col space-y-6 bg-[#171717] h-screen min-w-48'>
-        <p className='text-white font-semibold px-24 pb-2 pt-4'>Explorer</p>
-        <div className='text-white font-semibold bg-[#2E2E2E] px-4 py-1 max-w-lg flex items-center space-x-2'>
-            <BsChevronRight />
-            <p>About Zarif</p>
-        </div>
+      <div className='flex flex-col space-y-1 bg-[#171717] h-screen min-w-48'>
+        <p className='text-white font-semibold px-24 pb-2 pt-4 border-b-2 border-[#2E2E2E]'>Explorer</p>
+        
+        <div className='mr-1'><DisplayFolders file={folderStructure} /></div>
+      </div>
+    </div>
+  )
+}
+const DisplayFolders = ({ file }: any) => {
+
+  const [showChildren ,setShowChildren] = useState(true)
+
+  return (
+    <div className='block  '>
+      
+
+      <div onClick={() => setShowChildren(!showChildren)} className='border-l text-white font-semibold px-4 py-1 max-w-lg flex items-center space-x-2 hover:bg-[#2E2E2E]  cursor-pointer rounded-r my-1'>
+        { file.type === "folder" ? <BsChevronRight /> : <Image src={typescript_parrot} alt="matrix" width={20} height={20} /> }
+        <p>{file.name}</p>
+      </div>
+
+      <div className=' pl-3'>
+        {
+          file.type === "folder" && showChildren && file.children.length > 0 && file.children.map((child: any, index: number) => {
+            return (
+              <DisplayFolders key={index} file={child} />
+            )
+          })
+        }
       </div>
     </div>
   )
