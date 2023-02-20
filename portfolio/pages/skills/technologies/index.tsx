@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head';
 import SideBar from '@/components/SideBar';
-import FootBar from './../../components/FootBar';
+import FootBar from '../../../components/FootBar';
 
 const Skills = () => {
   return (
@@ -13,8 +13,11 @@ const Skills = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <div></div>
-      <SideBar />
+      <div className='flex space-x-2 overflow-hidden'>
+        <SideBar />
+        <h1 className=''>Hiii ia m Zdsdarif rer e</h1>
+      </div>
+      
 
       <FootBar />
     </div>

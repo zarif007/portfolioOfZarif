@@ -43,28 +43,50 @@ export const folderStructure = {
       type: "folder",
       children: [
         {
-          name: "index.tsx",
-          icon: "https://i.ibb.co/KzCJb7z/typescript.png",
-          url: "/skills",
-          type: "file",
+          name: "problem-solving",
+          icon: "",
+          url: "/skills/problem-solving",
+          type: "folder",
+          children: [
+            {
+              name: "competitive-programming.cpp",
+              icon: "https://i.ibb.co/gVRhCyt/ISO-C-Logo-svg.png",
+              url: "/skills/problem-solving/competitive-programming",
+              type: "file",
+            },
+          ]
         },
         {
-          name: "reactJS.tsx",
-          icon: "https://i.ibb.co/jhsJV1P/react.png",
-          url: "/skills/reactJS",
-          type: "file",
-        },
-        {
-          name: "nextJS.tsx",
-          icon: "https://i.ibb.co/R9FDdTY/nextjs.jpg",
-          url: "/skills/nextJS",
-          type: "file",
-        },
-        {
-          name: "django.py",
-          icon: "https://i.ibb.co/0GVw0yF/django.png",
-          url: "/skills/django",
-          type: "file",
+          name: "technologies",
+          icon: "",
+          url: "skills/technologies",
+          type: "folder",
+          children: [
+            {
+              name: "index.tsx",
+              icon: "https://i.ibb.co/KzCJb7z/typescript.png",
+              url: "/skills/technologies",
+              type: "file",
+            },
+            {
+              name: "reactJS.tsx",
+              icon: "https://i.ibb.co/jhsJV1P/react.png",
+              url: "/skills/technologies/reactJS",
+              type: "file",
+            },
+            {
+              name: "nextJS.tsx",
+              icon: "https://i.ibb.co/R9FDdTY/nextjs.jpg",
+              url: "/skills/technologies/nextJS",
+              type: "file",
+            },
+            {
+              name: "django.py",
+              icon: "https://i.ibb.co/0GVw0yF/django.png",
+              url: "/skills/technologies/django",
+              type: "file",
+            },
+          ]
         },
       ],
     },

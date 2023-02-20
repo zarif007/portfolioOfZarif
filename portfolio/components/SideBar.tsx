@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FiGithub } from "react-icons/fi";
-import { BsChevronRight } from "react-icons/bs";
+import { BsChevronRight, BsFiles } from "react-icons/bs";
 import { AiFillFolderOpen, AiTwotoneSetting } from "react-icons/ai";
 import { VscGithubAction } from "react-icons/vsc";
 import { AiOutlineLinkedin } from "react-icons/ai";
@@ -12,26 +12,36 @@ import { folderStructure } from './../folder-structure';
 import typescript_parrot from '../public/typescript_parrot.gif'
 import Image from "next/image";
 import { useRouter } from 'next/router';
+import FileBarModal from './FileBarModal';
+import FileBar from './FileBar';
 
 const SideBar = () => {
 
   const [isTerminalOpen, setIsTerminalOpen] = useState<boolean>(false);
 
+  const [isFileBarOpen, setIsFileBarOpen] = useState<boolean>(true);
+
+  const [isFileBarModalOpen, setIsFileBarModalOpen] = useState<boolean>(true);
+
   const styles = {
     firstSideBarIcons: "w-10 h-10 text-gray-200 m-2 hover:text-white cursor-pointer"
   }
   return (
-    <div className='flex h-full'>
+    <div className='flex z-12 h-screen '>
 
         {/* 1st = #171717
             2nd =  #2E2E2E
             orange = #ff6932*/}
       
-      {/* first sidebar */}
-      <div className='flex flex-col justify-between bg-[#2E2E2E]' style={{ maxHeight: "95vh" }}>
+      {/* social sidebar */}
+      <div className='flex flex-col justify-between bg-[#2E2E2E] border-r border-[#171717]' style={{ maxHeight: "95vh" }}>
         <div className='flex flex-col space-y-4'>
-            <div className='bg-[#ff6932]'>
-                <VscGithubAction className={styles.firstSideBarIcons} />  
+            <div className={`${ isFileBarOpen && 'bg-[#ff6932]' } hidden lg:inline`} onClick={() => setIsFileBarOpen(!isFileBarOpen)}>
+                <BsFiles className={styles.firstSideBarIcons} />  
+            </div>
+
+            <div className={`${ isFileBarModalOpen && 'bg-[#ff6932]' } inline lg:hidden`} onClick={() => setIsFileBarModalOpen(!isFileBarModalOpen)}>
+                <BsFiles className={styles.firstSideBarIcons} />  
             </div>
             <div className=''>
                 <FiGithub className={styles.firstSideBarIcons} />
@@ -55,43 +65,18 @@ const SideBar = () => {
         </div>
       </div>
       
+      <FileBarModal isFileBarOpen={isFileBarModalOpen} setIsFileBarOpen={setIsFileBarModalOpen} />
           
-      {/* 2nd sidebar */}
-      <div className='flex flex-col space-y-1 bg-[#171717] h-screen min-w-48'>
-        <p className='text-white font-semibold px-24 pb-2 pt-4 border-b-2 border-[#2E2E2E]'>Explorer</p>
-        
-        <div className='mr-1'><DisplayFolders file={folderStructure} /></div>
-      </div>
+      {/* file sidebar */}
+      {
+        isFileBarOpen && <div className='hidden lg:inline'>
+          <FileBar />
+        </div>
+      }
+      
     </div>
   )
 }
-const DisplayFolders = ({ file }: any) => {
 
-  const [showChildren ,setShowChildren] = useState(true);
-
-  const router = useRouter();
-
-  return (
-    <div className='block'>
-      <div onClick={() => file.type === "folder" ? setShowChildren(!showChildren) : router.push(`${file.url}`)} className='border-l border-[#ff6932] text-gray-300 font-semibold px-4 py-1 max-w-lg flex items-center space-x-2 hover:bg-[#2E2E2E]  cursor-pointer rounded-r my-1'>
-        { file.type === "folder" ? <>
-          <BsChevronRight />
-          <AiFillFolderOpen />
-        </> : <Image src={file.icon} alt="matrix" width={20} height={20} /> }
-        <p>{file.name}</p>
-      </div>
-
-      <div className=' pl-3'>
-        {
-          file.type === "folder" && showChildren && file.children.length > 0 && file.children.map((child: any, index: number) => {
-            return (
-              <DisplayFolders key={index} file={child} />
-            )
-          })
-        }
-      </div>
-    </div>
-  )
-}
 
 export default SideBar
