@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FiGithub } from "react-icons/fi";
 import { BsChevronRight } from "react-icons/bs";
-import { AiTwotoneSetting } from "react-icons/ai";
+import { AiFillFolderOpen, AiTwotoneSetting } from "react-icons/ai";
 import { VscGithubAction } from "react-icons/vsc";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import { AiOutlineFacebook } from "react-icons/ai";
@@ -11,6 +11,7 @@ import TerminalModal from './TerminalModal';
 import { folderStructure } from './../folder-structure';
 import typescript_parrot from '../public/typescript_parrot.gif'
 import Image from "next/image";
+import { useRouter } from 'next/router';
 
 const SideBar = () => {
 
@@ -66,14 +67,17 @@ const SideBar = () => {
 }
 const DisplayFolders = ({ file }: any) => {
 
-  const [showChildren ,setShowChildren] = useState(true)
+  const [showChildren ,setShowChildren] = useState(true);
+
+  const router = useRouter();
 
   return (
-    <div className='block  '>
-      
-
-      <div onClick={() => setShowChildren(!showChildren)} className='border-l text-white font-semibold px-4 py-1 max-w-lg flex items-center space-x-2 hover:bg-[#2E2E2E]  cursor-pointer rounded-r my-1'>
-        { file.type === "folder" ? <BsChevronRight /> : <Image src={typescript_parrot} alt="matrix" width={20} height={20} /> }
+    <div className='block'>
+      <div onClick={() => file.type === "folder" ? setShowChildren(!showChildren) : router.push(`${file.url}`)} className='border-l border-[#ff6932] text-gray-300 font-semibold px-4 py-1 max-w-lg flex items-center space-x-2 hover:bg-[#2E2E2E]  cursor-pointer rounded-r my-1'>
+        { file.type === "folder" ? <>
+          <BsChevronRight />
+          <AiFillFolderOpen />
+        </> : <Image src={file.icon} alt="matrix" width={20} height={20} /> }
         <p>{file.name}</p>
       </div>
 

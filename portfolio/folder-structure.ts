@@ -1,12 +1,12 @@
 export const folderStructure = {
-  name: "about Zarif",
+  name: "About Zarif",
   icon: "",
   url: "/",
   type: "folder",
   children: [
     {
       name: "home.tsx",
-      icon: "",
+      icon: "https://i.ibb.co/KzCJb7z/typescript.png",
       url: "/",
       type: "file",
     },
@@ -17,15 +17,21 @@ export const folderStructure = {
       type: "folder",
       children: [
         {
-          name: "programming-philosophy.tsx",
-          icon: "",
-          url: "/programming-philosophy",
+          name: "index.tsx",
+          icon: "https://i.ibb.co/KzCJb7z/typescript.png",
+          url: "/personality",
           type: "file",
         },
         {
-          name: "what-i-like.tsx",
-          icon: "",
-          url: "/what-i-like",
+          name: "philosophy.brain",
+          icon: "https://i.ibb.co/YNxf6zq/download-6-removebg-preview.png",
+          url: "/personality/philosophy",
+          type: "file",
+        },
+        {
+          name: "preference.like",
+          icon: "https://i.ibb.co/6XSg9Mk/facebook-love-png-3.png",
+          url: "/personality/preference",
           type: "file",
         },
       ],
@@ -37,21 +43,27 @@ export const folderStructure = {
       type: "folder",
       children: [
         {
+          name: "index.tsx",
+          icon: "https://i.ibb.co/KzCJb7z/typescript.png",
+          url: "/skills",
+          type: "file",
+        },
+        {
           name: "reactJS.tsx",
-          icon: "",
-          url: "/reactJS",
+          icon: "https://i.ibb.co/jhsJV1P/react.png",
+          url: "/skills/reactJS",
           type: "file",
         },
         {
           name: "nextJS.tsx",
-          icon: "",
-          url: "/nextJS",
+          icon: "https://i.ibb.co/R9FDdTY/nextjs.jpg",
+          url: "/skills/nextJS",
           type: "file",
         },
         {
-          name: "Django.tsx",
-          icon: "",
-          url: "/Django",
+          name: "django.py",
+          icon: "https://i.ibb.co/0GVw0yF/django.png",
+          url: "/skills/django",
           type: "file",
         },
       ],

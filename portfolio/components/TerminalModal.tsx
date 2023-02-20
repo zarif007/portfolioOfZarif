@@ -31,7 +31,8 @@ const TerminalModal = ({
     if (event.key === 'Enter') {
       event.target.value = ''
       setCommands([ ...commands, { location: 'user@portfolio-of-Zarif:~$', command: currentCommand, result: '' } ])
-      setCurrentCommand('');
+      
+      setCurrentCommand('')
 
       setShowMatrix(true)
 
@@ -85,7 +86,7 @@ const TerminalModal = ({
                 </div>
 
                 {
-                  showMatrix ? <Image src={matrix} alt="matrix" width={1000} height={1000} /> : <div className="border-t-2 border-gray-700  bg-[#171717]">
+                  (showMatrix && matrix) ? <Image src={matrix} alt="matrix" width={1000} height={1000} /> : <div className="border-t-2 border-gray-700  bg-[#171717]">
                     <div className="p-2 text-md font-semibold pb-12">
                       
                       <ShowPreviousCommands commands={commands} />
