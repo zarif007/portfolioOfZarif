@@ -3,6 +3,7 @@ import { Inter } from '@next/font/google'
 import SideBar from '@/components/SideBar'
 import FootBar from '@/components/FootBar'
 import AboutZarif from './../components/AboutZarif';
+import Layout from '@/components/Layout';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,14 +17,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <div className='flex space-x-16 md:space-x-2 lg:space-x-80 overflow-hidden'>
-        <div className=''>
-          <SideBar />
-        </div>
-        <div className=' h-screen'>
-          <AboutZarif />
-        </div>
-      </div>
+      <Layout> 
+        <AboutZarif />
+      </Layout>
 
       <FootBar />
     </div>
