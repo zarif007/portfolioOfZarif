@@ -23,13 +23,13 @@ export const folderStructure = {
           type: "file",
         },
         {
-          name: "philosophy.brain",
+          name: "philosophy.go",
           icon: "https://i.ibb.co/YNxf6zq/download-6-removebg-preview.png",
           url: "/personality/philosophy",
           type: "file",
         },
         {
-          name: "preference.like",
+          name: "preference.sol",
           icon: "https://i.ibb.co/6XSg9Mk/facebook-love-png-3.png",
           url: "/personality/preference",
           type: "file",

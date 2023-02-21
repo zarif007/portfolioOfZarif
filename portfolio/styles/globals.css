@@ -12,3 +12,8 @@
     user-select: none;
 }
 
+.gradient1 {
+  background: linear-gradient(90deg, rgba(233,86,120,1) 20%, rgba(255,105,50,1) 42%, rgba(240,148,131,1) 77%, rgba(250,183,149,1) 97%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -40,7 +40,7 @@ const FileBarModal = ({ isFileBarOpen, setIsFileBarOpen, }: {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel className="w-full max-w-xl transform overflow-hidden bg-[#171717] border-2 rounded-md border-gray-700 text-left align-middle shadow-xl transition-all">
-                <FileBar />
+                <FileBar height="" setIsOpen={setIsFileBarOpen} />
               </Dialog.Panel>
             </Transition.Child>
           </div>
