@@ -15,7 +15,8 @@ const Skills = () => {
       </Head>
       
       <Layout>
-        <p className='mx-auto'>Hiiiii</p>
+      <div className='pt-4 text-gray-200 font-semibold md:text-lg text-sm max-w-xl mt-12'>I’m a software engineer specializing in building (and occasionally designing) exceptional digital experiences. 
+              Currently, I’m focused on building accessible, human-centered products at</div>
       </Layout>
       
 

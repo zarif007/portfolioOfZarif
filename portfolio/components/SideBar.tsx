@@ -1,17 +1,12 @@
 import React, { useState } from 'react'
 import { FiGithub } from "react-icons/fi";
-import { BsChevronRight, BsFiles } from "react-icons/bs";
-import { AiFillFolderOpen, AiTwotoneSetting } from "react-icons/ai";
-import { VscGithubAction } from "react-icons/vsc";
+import { BsFiles } from "react-icons/bs";
+import { AiTwotoneSetting } from "react-icons/ai";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import { AiOutlineFacebook } from "react-icons/ai";
 import { IoTerminal } from "react-icons/io5";
 import { IoLogoInstagram } from "react-icons/io5";
 import TerminalModal from './TerminalModal';
-import { folderStructure } from './../folder-structure';
-import typescript_parrot from '../public/typescript_parrot.gif'
-import Image from "next/image";
-import { useRouter } from 'next/router';
 import FileBarModal from './FileBarModal';
 import FileBar from './FileBar';
 import { useRecoilState } from 'recoil';
@@ -29,7 +24,7 @@ const SideBar = () => {
     firstSideBarIcons: "w-10 h-10 text-gray-200 m-2 hover:text-white cursor-pointer"
   }
   return (
-    <div className='flex h-full min-h-screen fixed'>
+    <div className='flex h-full min-h-screen fixed z-11'>
 
         {/* 1st = #171717
             2nd =  #2E2E2E
