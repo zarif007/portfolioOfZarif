@@ -14,7 +14,7 @@ const DisplayFolders = ({ file }: any) => {
     const router = useRouter();
   
     const addToOpenTabList = (file: any) => {
-      const flag = openEditors.find(x => x.name === file.name)
+      const flag = openEditors.find(x => x.url === file.url)
       !flag && setOpenEditors([ ...openEditors, file ]);
     }
   

@@ -1,9 +1,9 @@
 import React from 'react'
 import Head from 'next/head';
-import FootBar from '../../../components/FootBar';
-import Layout from '@/components/Layout';
+import FootBar from '../../components/FootBar';
+import Layout from '@/components/Layout'
 
-const Skills = () => {
+const Personality = () => {
   return (
     <div className='bg-[#2E2E2E]'>
       <Head>
@@ -24,4 +24,4 @@ const Skills = () => {
   )
 }
 
-export default Skills
+export default Personality

@@ -17,7 +17,7 @@ export const folderStructure = {
       type: "folder",
       children: [
         {
-          name: "index.tsx",
+          name: "personality.tsx",
           icon: "https://i.ibb.co/KzCJb7z/typescript.png",
           url: "/personality",
           type: "file",
@@ -63,7 +63,7 @@ export const folderStructure = {
           type: "folder",
           children: [
             {
-              name: "index.tsx",
+              name: "technologies.tsx",
               icon: "https://i.ibb.co/KzCJb7z/typescript.png",
               url: "/skills/technologies",
               type: "file",

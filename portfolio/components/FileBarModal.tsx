@@ -13,7 +13,7 @@ const FileBarModal = ({ isFileBarOpen, setIsFileBarOpen, }: {
     <Transition appear show={isFileBarOpen} as={Fragment}>
       <Dialog
         as="div"
-        className="relative z-10 lg:hidden inline"
+        className="relative z-20 lg:hidden inline"
         onClose={() => setIsFileBarOpen(false)}
       >
         <Transition.Child

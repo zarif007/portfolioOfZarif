@@ -24,7 +24,7 @@ const SideBar = () => {
     firstSideBarIcons: "w-10 h-10 text-gray-200 m-2 hover:text-white cursor-pointer"
   }
   return (
-    <div className='flex h-full min-h-screen fixed z-11'>
+    <div className='flex h-full min-h-screen fixed z-20'>
 
         {/* 1st = #171717
             2nd =  #2E2E2E
