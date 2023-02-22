@@ -91,9 +91,9 @@ const TerminalModal = ({
                       
                       <ShowPreviousCommands commands={commands} />
 
-                      <p className="gradient1">user@portfolio-of-Zarif:~$</p>
+                      <p className="text-[#ff6932]">user@portfolio-of-Zarif:~$</p>
                       <div className="flex items-start space-x-2">
-                        <p className="gradient1 mt-1">{">"}</p>
+                        <p className="text-[#ff6932] mt-1">{">"}</p>
                         <input
                           className={`w-full pb-4 text-md bg-[#171717] text-gray-200 font-semibold mt-1 px-1 focus:outline-0 rounded-md`}
                           defaultValue={currentCommand}

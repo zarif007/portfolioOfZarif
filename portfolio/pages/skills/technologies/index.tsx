@@ -15,7 +15,7 @@ const Skills = () => {
       </Head>
       
       <Layout>
-        <p>Hiiiii</p>
+        <p className='mx-auto'>Hiiiii</p>
       </Layout>
       
 
