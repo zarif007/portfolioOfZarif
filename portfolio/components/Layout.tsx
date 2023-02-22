@@ -1,13 +1,20 @@
+import { fileBarState } from '@/atoms/FileBarAtom';
 import React, { ReactNode } from 'react'
 import SideBar from './SideBar'
+import { useRecoilState } from 'recoil';
 
 const Layout = ({ children }: { children: ReactNode }) => {
+
+  const [isFileBarOpen] = useRecoilState(fileBarState);
+
+  console.log('eee', isFileBarOpen)
+
   return (
-    <div className='flex space-x-2 lg:space-x-24'>
-        <div className='w-4/12 xs:w-2/12 sm:w-2/12 md:w-3/12 '>
+    <div className='flex'>
+        <div className={`${isFileBarOpen ? 'lg:w-3/12' : 'lg:w-1/12'} sm:w-2/12 w-8/12`}>
             <SideBar />
         </div>
-        <div className='h-full min-h-screen'>
+        <div className='h-full min-h-screen mx-auto'>
             {children}
         </div>
     </div>

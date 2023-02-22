@@ -14,12 +14,14 @@ import Image from "next/image";
 import { useRouter } from 'next/router';
 import FileBarModal from './FileBarModal';
 import FileBar from './FileBar';
+import { useRecoilState } from 'recoil';
+import { fileBarState } from './../atoms/FileBarAtom';
 
 const SideBar = () => {
 
   const [isTerminalOpen, setIsTerminalOpen] = useState<boolean>(false);
 
-  const [isFileBarOpen, setIsFileBarOpen] = useState<boolean>(true);
+  const [isFileBarOpen, setIsFileBarOpen] = useRecoilState<boolean>(fileBarState);
 
   const [isFileBarModalOpen, setIsFileBarModalOpen] = useState<boolean>(true);
 
@@ -27,7 +29,7 @@ const SideBar = () => {
     firstSideBarIcons: "w-10 h-10 text-gray-200 m-2 hover:text-white cursor-pointer"
   }
   return (
-    <div className='flex h-screen fixed'>
+    <div className='flex h-full min-h-screen fixed'>
 
         {/* 1st = #171717
             2nd =  #2E2E2E
