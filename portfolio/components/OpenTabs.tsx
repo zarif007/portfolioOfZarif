@@ -32,7 +32,7 @@ const OpenTabs = () => {
               className={`border-[#171717]  ${tab.url !== currentTab ? 'bg-[#171717]' : 'border-t-[#ff6932] bg-[#2E2E2E]'}  border-t-4   cursor-pointer text-[#ff6932] px-6 py-2 font-semibold my-auto flex justify-center items-center space-x-4`}
             >
               <Link href={tab.url} className="flex space-x-1 justify-center items-center">
-                <img src={tab.icon} className="h-4" />
+                <img src={tab.icon} className="h-4" alt="icon" />
                 <p>{tab.name}</p>
               </Link>
               <RxCross2
