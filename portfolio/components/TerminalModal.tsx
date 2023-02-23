@@ -46,7 +46,7 @@ const TerminalModal = ({
     <Transition appear show={isTerminalOpen} as={Fragment}>
       <Dialog
         as="div"
-        className="relative z-10"
+        className="relative z-40"
         onClose={() => setIsTerminalOpen(false)}
       >
         <Transition.Child

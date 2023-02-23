@@ -67,7 +67,7 @@ const SideBar = () => {
       {/* file sidebar */}
       {
         isFileBarOpen && <div className='hidden lg:inline'>
-          <FileBar height="h-screen" setIsOpen={setIsFileBarOpen} />
+          <FileBar height="h-full min-h-screen" setIsOpen={setIsFileBarOpen} />
         </div>
       }
       

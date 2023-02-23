@@ -23,3 +23,38 @@
   border-image-source: linear-gradient(90deg, rgba(233,86,120,1) 20%, rgba(255,105,50,1) 42%, rgba(240,148,131,1) 77%, rgba(250,183,149,1) 97%);
 
 }
+
+:root {
+  --primary: #171717;
+  --secondary: #ff6932;
+}
+
+/* Scrollbar styles */
+
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--primary) var(--secondary);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--primary);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+/*   background: repeating-linear-gradient(
+    45deg,
+    var(--secondary),
+    var(--secondary) 5px,
+    var(--primary) 5px,
+    var(--primary) 10px
+  ); */
+  border-radius: 12px;
+  border: 3px solid var(--primary);
+}

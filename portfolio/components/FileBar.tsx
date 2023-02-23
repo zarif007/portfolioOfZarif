@@ -24,7 +24,7 @@ const FileBar = ({
     children: openTabs
   }
   return (
-    <div className={`flex flex-col space-y-1 bg-[#171717] min-w-48 ${height} z-20`}>
+    <div className={`flex flex-col space-y-1 bg-[#171717] min-w-48 ${height} z-20 pb-12`}>
       <div
         className={`text-white font-semibold text-center py-4 border-b-2 border-[#2E2E2E] flex justify-between items-center px-4`}
       >
@@ -32,7 +32,7 @@ const FileBar = ({
         <RxCross2 className="cursor-pointer" onClick={() => setIsOpen(false)} />
       </div>
 
-      <div className="mr-1 w-screen max-w-xs">
+      <div className="mr-1 w-screen max-w-xs overflow-y-auto">
         <DisplayFolders file={tabs} />
         <DisplayFolders file={folderStructure} />
       </div>

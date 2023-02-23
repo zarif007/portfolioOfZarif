@@ -25,12 +25,12 @@ const OpenTabs = () => {
   };
   return (
     <div className="top-0 fixed z-10">
-      <div className="flex space-x-1 overflow-x-auto bg-[#171717]">
+      <div className="flex space-x-1 bg-[#171717]">
         {openTabs.map((tab: any, index: number) => {
           return (
             <div
               key={index}
-              className={`  ${tab.url !== currentTab ? 'bg-[#171717] border-[#171717]' : 'border-[#ff6932] bg-[#2E2E2E]'}  border-t-4   cursor-pointer text-[#ff6932] px-6 py-2 font-semibold my-auto flex justify-center items-center space-x-4`}
+              className={`  ${tab.url !== currentTab ? 'bg-[#171717] border-[#171717] text-gray-200' : 'border-[#ff6932] text-[#ff6932] bg-[#2E2E2E]'}  border-t-4   cursor-pointer  hover:text-[#ff6932] px-6 py-2 font-semibold my-auto flex justify-center items-center space-x-4`}
             >
               <Link href={tab.url} className="flex space-x-1 justify-center items-center">
                 <img src={tab.icon} className="h-4" alt="icon" />
