@@ -11,6 +11,7 @@ import FileBarModal from './FileBarModal';
 import FileBar from './FileBar';
 import { useRecoilState } from 'recoil';
 import { fileBarState } from './../atoms/FileBarAtom';
+import NumberLineBar from './NumberLineBar';
 
 const SideBar = () => {
 

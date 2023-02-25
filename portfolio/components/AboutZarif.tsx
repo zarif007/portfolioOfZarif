@@ -19,10 +19,16 @@ const AboutZarif = () => {
         <h1 className='md:text-9xl text-7xl font-extrabold gradient1-text'>Zarif</h1>
         <h1 className='md:text-5xl text-3xl font-extrabold gradient1-text'>I build web apps</h1>
 
-        <div className='pt-4 text-blue-200 font-semibold lg:text-lg text-sm max-w-xl'>I’m a software engineer specializing in building (and occasionally designing) exceptional digital experiences. 
-          Currently, I’m focused on building accessible, human-centered products at</div>
+        <div className='pt-4 text-gray-200 font-semibold lg:text-lg text-sm max-w-xl'>
+          <p>I’m a software developer specializing in building (and occasionally designing) web applications. 
+          Currently, I’m focused on:</p>
+          <p className='mt-1 lg:text-md text-sm gradient1-text'>Building Gamocracy</p>
+          <p className='mt-1 lg:text-md text-sm gradient1-text'>Developing an e-commerce site</p>
+          <p className='mt-1 lg:text-md text-sm gradient1-text'>Planning OpenCourse</p>
+          <p className='mt-1 lg:text-md text-sm gradient1-text'>Planning a hyperledger fabric project</p>
+        </div>
 
-        <button className='my-6 px-16 py-4 rounded-sm font-bold text-md text-blue-200 border-2 gradient1-border hover:bg-opacity-5 hover:bg-[#ff6932]'>Get CV</button>
+        <button className='my-6 px-16 py-4 rounded-sm font-bold text-md text-gray-200 border-2 gradient1-border hover:bg-opacity-5 hover:bg-[#ff6932]'>Get CV</button>
       </div>      
 
       <div className='w-1/3 border-4 gradient1-border hidden lg:inline mr-4'>

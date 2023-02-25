@@ -5,17 +5,19 @@ import { AiFillFolderOpen } from "react-icons/ai";
 import Image from "next/image";
 import { BsChevronRight } from "react-icons/bs";
 import { useRouter } from "next/router";
+import { TabInterface } from './../interfaces/TabInterface';
+import { FileInterface } from './../interfaces/FileInterface';
 
-const DisplayFolders = ({ file }: any) => {
+const DisplayFolders = ({ file }: { file: FileInterface}) => {
     const [showChildren, setShowChildren] = useState(true);
     
-    const [openEditors, setOpenEditors] = useRecoilState<any[]>(OpenTabsState);
+    const [openTabs, setOpenTabs] = useRecoilState<TabInterface[]>(OpenTabsState);
   
     const router = useRouter();
   
     const addToOpenTabList = (file: any) => {
-      const flag = openEditors.find(x => x.url === file.url)
-      !flag && setOpenEditors([ ...openEditors, file ]);
+      const flag = openTabs.find(x => x.url === file.url)
+      !flag && setOpenTabs([ ...openTabs, file ]);
     }
   
     return (
@@ -47,7 +49,7 @@ const DisplayFolders = ({ file }: any) => {
         <div className=" pl-3">
           {file.type === "folder" &&
             showChildren &&
-            file.children.length > 0 &&
+            file.children &&
             file.children.map((child: any, index: number) => {
               return <DisplayFolders key={index} file={child} />;
             })}

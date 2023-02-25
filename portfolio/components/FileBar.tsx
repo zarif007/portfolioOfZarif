@@ -4,6 +4,7 @@ import { folderStructure } from "@/folder-structure";
 import DisplayFolders from "./DisplayFolders";
 import { useRecoilState } from 'recoil';
 import { OpenTabsState } from '@/atoms/OpenTabsAtom';
+import { TabInterface } from './../interfaces/TabInterface';
 
 
 const FileBar = ({
@@ -14,7 +15,7 @@ const FileBar = ({
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
 
-  const [openTabs, setOpenTabs] = useRecoilState(OpenTabsState);
+  const [openTabs, setOpenTabs] = useRecoilState<TabInterface[]>(OpenTabsState);
 
   const tabs = {
     name: "Open Tabs",
