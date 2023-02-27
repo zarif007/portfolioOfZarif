@@ -17,10 +17,10 @@ const imgArr = [
 //
 
 const focusedBars = [
-  'Building     Gamocracy',
-  'Planning OpenCourse ',
-  'Developing    an  e-commerce',
-  'Planning a HL fabric   project',
+  'Building🏗️/     Gamocracy',
+  'Planning🧠/ OpenCourse ',
+  'Developing🏗️/    an  e-commerce',
+  'Planning🧠/ a fabric   project',
 
 ];
 
@@ -65,21 +65,20 @@ const AboutZarif = () => {
         <div className="pt-4 text-gray-200 font-semibold lg:text-lg text-sm max-w-xl">
           <p>
             I’m a software developer specializing in building (and occasionally
-            designing) web applications. Currently, I’m focused on:
+            designing) web applications. Currently,
           </p>
           <div ref={animateRef}>
-          <div className="py-6 px-2 border-2 border-gray-700 bg-[#171717] flex items-center justify-between rounded my-3">
-              <p className="lg:text-xl text-lg gradient1-text">{currentFocusedBar}</p>
+            <div className="py-4 px-2 border-2 border-gray-700 bg-[#171717] flex items-center justify-between rounded my-3">
+              <div>
+                <p className="lg:text-sm text-xs">{currentFocusedBar.split('/')[0]}</p>
+                <p className="lg:text-xl text-lg gradient1-text">{currentFocusedBar.split('/')[1]}</p>
+              </div>
               <div className="flex space-x-2">
                 <BsGithub className="w-6 h-6 cursor-pointer" />
                 <TfiWorld className="w-6 h-6 cursor-pointer" />
               </div>
             </div>
           </div>
-
-          {/* <p className='mt-1 lg:text-md text-sm gradient1-text'>Developing an e-commerce site</p>
-          <p className='mt-1 lg:text-md text-sm gradient1-text'>Planning OpenCourse</p>
-          <p className='mt-1 lg:text-md text-sm gradient1-text'>Planning a hyperledger fabric project</p> */}
         </div>
 
         <button className="my-6 px-16 py-4 rounded-sm font-bold text-md text-gray-200 border-2 gradient1-border hover:bg-opacity-5 hover:bg-[#ff6932]">
@@ -92,7 +91,7 @@ const AboutZarif = () => {
           src={`${imgArr[Math.floor(Math.random() * 2)]}`}
           className=""
           alt="banner"
-          style={{ objectFit: "cover", height: 400, width: 500 }}
+          style={{ objectFit: "cover", height: 300, width: 500 }}
         />
       </div>
     </div>
