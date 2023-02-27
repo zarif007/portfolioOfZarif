@@ -41,7 +41,7 @@ const DisplayFolders = ({ file }: { file: FileInterface}) => {
               <AiFillFolderOpen className="h-6 w-6" />
             </>
           ) : (
-            <Image src={file.icon} alt="matrix" width={20} height={20} />
+            <Image src={file.icon} alt="icon" width={20} height={20} />
           )}
           <p className="unselectable">{file.name}</p>
         </div>

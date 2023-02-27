@@ -4,21 +4,15 @@ import { RxCross2 } from "react-icons/rx";
 import { useRecoilState } from "recoil";
 import { OpenTabsState } from "../atoms/OpenTabsAtom";
 import { TabInterface } from './../interfaces/TabInterface';
+import getUrlLocation from './../hooks/getUrlLocation';
 
 const OpenTabs = () => {
   const [openTabs, setOpenTabs] = useRecoilState<TabInterface[]>(OpenTabsState);
 
   const [currentTabUrl, setCurrentTabUrl] = useState<string>('');
 
-  useEffect(() => {
-    const fullUrl = window.location.href.split('/')
-
-    let url = ''
-    fullUrl.splice(3, fullUrl.length).map((x: string) => {
-      url += `/${x}`
-    })
-      
-    setCurrentTabUrl(url)
+  useEffect(() => {  
+    setCurrentTabUrl(getUrlLocation())
   }, [openTabs])
 
   const removeFromList = (url: string) => {

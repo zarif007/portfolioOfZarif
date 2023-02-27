@@ -1,16 +1,20 @@
 import React, { useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
-import { AiOutlineCloseCircle } from "react-icons/ai";
+import { AiFillFolderOpen, AiOutlineCloseCircle } from "react-icons/ai";
 import { VscChromeMinimize } from "react-icons/vsc";
-import matrix from '../public/matrix.gif'
+import matrix from "../public/matrix.gif";
 import Image from "next/image";
-
+import getUrlLocation from './../hooks/getUrlLocation';
+import { folderStructure } from './../folder-structure';
+import searchOnFolderStructure from './../hooks/searchOnFolderStructure';
+import { FileInterface } from './../interfaces/FileInterface';
+import { useRouter } from 'next/router';
 
 interface commandInterface {
-  location: string; 
+  location: string;
   command: string;
-  result: string
+  result: (string | any);
 }
 
 const TerminalModal = ({
@@ -21,26 +25,107 @@ const TerminalModal = ({
   setIsTerminalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
 
-  const [commands, setCommands] = useState<commandInterface[]>([])
-  const [currentCommand, setCurrentCommand] = useState<string>('')
+  const router = useRouter();
 
-  const [showMatrix, setShowMatrix] = useState<boolean>(false)
+  const [commands, setCommands] = useState<commandInterface[]>([]);
+  const [currentCommand, setCurrentCommand] = useState<string>("");
+
+  const [location, setLocation] = useState<string>('');
+
+  const [showMatrix, setShowMatrix] = useState<boolean>(false);
+
+  useEffect(() => {
+    setLocation(getUrlLocation())
+  }, [])
 
   const handleAddCommand = (event: any) => {
-    
-    if (event.key === 'Enter') {
-      event.target.value = ''
-      setCommands([ ...commands, { location: 'user@portfolio-of-Zarif:~$', command: currentCommand, result: '' } ])
+    if (event.key === "Enter") {
+      event.target.value = "";
+
+      setCommands([
+        ...commands,
+        {
+          location: `user@portfolio-of-Zarif${location}:~$`,
+          command: currentCommand,
+          result: "",
+        },
+      ]);
+
+      const parent: (FileInterface | null) = searchOnFolderStructure(location)
+
+      if(currentCommand.toLowerCase() === 'clear'){
+        setCommands([])
+      } else if(currentCommand.toLowerCase() === 'exit') {
+        setCommands([])
+        setIsTerminalOpen(false)
+      } else if(currentCommand.toLowerCase() === 'ls') {
+        setCommands([
+          ...commands,
+          {
+            location: `user@portfolio-of-Zarif${location}:~$`,
+            command: currentCommand,
+            result: !parent?.children ? 'no file' : 
+            <div className="flex flex-wrap space-x-6">
+              {
+                parent.children.map((child: FileInterface) => {
+                  return (
+                    <div className="flex space-x-1 items-center">
+                      {child.type === "folder" ? (
+                        <>
+                          <AiFillFolderOpen className="h-5 w-5" />
+                        </>
+                      ) : (
+                        <Image src={child.icon} alt="icon" width={20} height={20} />
+                      )}
+                      <p className="unselectable">/{child.name}</p>
+                    </div>
+                  )
+                })
+              }
+            </div>,
+          },
+        ]);
+      } else if(currentCommand.toLowerCase().startsWith('cd')) {
+        const childParam = currentCommand.toLowerCase().split(' ')[1];
+
+        let found = false;
+        if(parent?.children) {
+
+          parent.children?.map((child: FileInterface) => {
+            console.log(`/${child.name}` === childParam)
+            if(`/${child.name}` === childParam) {
+              router.push(child.url)
+              found = true;
+              setCommands([
+                ...commands,
+                {
+                  location: `user@portfolio-of-Zarif${location}:~$`,
+                  command: currentCommand,
+                  result: `Redirecting to ${childParam}`,
+                },
+              ]);
+              return;
+            }
+          })
+        }
+
+        !found && setCommands([
+          ...commands,
+          {
+            location: `user@portfolio-of-Zarif${location}:~$`,
+            command: currentCommand,
+            result: "No file or folder",
+          },
+        ]);
+      } 
       
-      setCurrentCommand('')
+      setCurrentCommand("");
 
-      setShowMatrix(true)
+      setShowMatrix(true);
 
-      setInterval(() => setShowMatrix(false), 2000)
+      setInterval(() => setShowMatrix(false), 2000);
     }
-
-  }
-
+  };
 
   return (
     <Transition appear show={isTerminalOpen} as={Fragment}>
@@ -76,36 +161,48 @@ const TerminalModal = ({
                 <div className="text-white p-2 font-semibold text-sm flex justify-between items-center bg-[#2E2E2E]">
                   <p>POZ Terminal</p>
                   <div className="flex space-x-2">
-                    <VscChromeMinimize className="w-6 h-6 text-blue-500 cursor-pointer" onClick={() => setIsTerminalOpen(false)} />
-                    <AiOutlineCloseCircle className="w-6 h-6 text-red-500 cursor-pointer" onClick={() => {
-                      setIsTerminalOpen(false)
-                      setCommands([])
-                      setCurrentCommand('')
-                    }} />
+                    <VscChromeMinimize
+                      className="w-6 h-6 text-blue-500 cursor-pointer"
+                      onClick={() => setIsTerminalOpen(false)}
+                    />
+                    <AiOutlineCloseCircle
+                      className="w-6 h-6 text-red-500 cursor-pointer"
+                      onClick={() => {
+                        setIsTerminalOpen(false);
+                        setCommands([]);
+                        setCurrentCommand("");
+                      }}
+                    />
                   </div>
                 </div>
 
-                {
-                  (showMatrix && matrix) ? <Image src={matrix} alt="matrix" width={1000} height={1000} /> : <div className="border-t-2 border-gray-700  bg-[#171717]">
+                {showMatrix ? (
+                  <Image src="https://i.ibb.co/ZM520Vg/matrix.gif" alt="matrix" width={1000} height={1000} blurDataURL="https://i.ibb.co/ZM520Vg/matrix.gif"
+                  placeholder='blur' />
+                ) : (
+                  <div className="border-t-2 border-gray-700  bg-[#171717]">
                     <div className="p-2 text-md font-semibold pb-12">
-                      
                       <ShowPreviousCommands commands={commands} />
 
-                      <p className="text-[#ff6932]">user@portfolio-of-Zarif:~$</p>
+                      <p className="text-[#ff6932]">
+                        {`user@portfolio-of-Zarif${location}:~$`}
+                      </p>
                       <div className="flex items-start space-x-2">
                         <p className="text-[#ff6932] mt-1">{">"}</p>
                         <input
                           className={`w-full pb-4 text-md bg-[#171717] text-gray-200 font-semibold mt-1 px-1 focus:outline-0 rounded-md`}
                           defaultValue={currentCommand}
-                          onChange={(e: any) => setCurrentCommand(e.target.value)}
-                          onKeyDown={(event: React.KeyboardEvent<HTMLInputElement>) => handleAddCommand(event)}
+                          onChange={(e: any) =>
+                            setCurrentCommand(e.target.value)
+                          }
+                          onKeyDown={(
+                            event: React.KeyboardEvent<HTMLInputElement>
+                          ) => handleAddCommand(event)}
                         />
                       </div>
-                      
                     </div>
                   </div>
-                }
-
+                )}
               </Dialog.Panel>
             </Transition.Child>
           </div>
@@ -115,22 +212,26 @@ const TerminalModal = ({
   );
 };
 
-const ShowPreviousCommands = ({ commands }: { commands: commandInterface[]}) => {
-
+const ShowPreviousCommands = ({
+  commands,
+}: {
+  commands: commandInterface[];
+}) => {
   return (
     <>
-      {
-        commands.map((command: commandInterface, index: number) => {
-          return (
-            <div key={index}>
-              <p className="text-[#ff6932]">{command.location} <span className="text-gray-200">{command.command}</span></p>
-              <p className="text-gray-200">{command.result}</p>
-            </div>
-          )
-        })
-      }
+      {commands.map((command: commandInterface, index: number) => {
+        return (
+          <div key={index}>
+            <p className="text-[#ff6932]">
+              {command.location}{" "}
+              <span className="text-gray-200">{command.command}</span>
+            </p>
+            <p className="text-gray-200">{command.result}</p>
+          </div>
+        );
+      })}
     </>
-  )
-}
+  );
+};
 
 export default TerminalModal;
