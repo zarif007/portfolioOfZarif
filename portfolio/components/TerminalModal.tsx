@@ -67,9 +67,9 @@ const TerminalModal = ({
             result: !parent?.children ? 'no file' : 
             <div className="flex flex-wrap space-x-6">
               {
-                parent.children.map((child: FileInterface) => {
+                parent.children.map((child: FileInterface, index: number) => {
                   return (
-                    <div className="flex space-x-1 items-center">
+                    <div key={index} className="flex space-x-1 items-center">
                       {child.type === "folder" ? (
                         <>
                           <AiFillFolderOpen className="h-5 w-5" />
