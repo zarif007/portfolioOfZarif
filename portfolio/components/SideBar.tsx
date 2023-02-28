@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FiGithub } from "react-icons/fi";
-import { BsFiles } from "react-icons/bs";
+import { BsFiles, BsSearch } from "react-icons/bs";
 import { AiTwotoneSetting } from "react-icons/ai";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import { AiOutlineFacebook } from "react-icons/ai";
@@ -40,6 +40,9 @@ const SideBar = () => {
 
             <div className={`${ isFileBarModalOpen && 'bg-[#ff6932]' } inline lg:hidden`} onClick={() => setIsFileBarModalOpen(!isFileBarModalOpen)}>
                 <BsFiles className={styles.firstSideBarIcons} />  
+            </div>
+            <div className=''>
+                <BsSearch className={styles.firstSideBarIcons} />
             </div>
             <div className=''>
                 <FiGithub className={styles.firstSideBarIcons} />
