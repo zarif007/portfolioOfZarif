@@ -82,7 +82,7 @@ const AboutZarif = () => {
         </div>
 
         <button className="my-6 px-16 py-4 rounded-sm font-bold text-md text-gray-200 border-2 gradient1-border hover:bg-opacity-5 hover:bg-[#ff6932]">
-          Get CV
+          DO
         </button>
       </div>
 
@@ -91,7 +91,7 @@ const AboutZarif = () => {
           src={`${imgArr[Math.floor(Math.random() * 2)]}`}
           className=""
           alt="banner"
-          style={{ objectFit: "cover", height: 300, width: 500 }}
+          style={{ objectFit: "cover", height: 400, width: 500 }}
         />
       </div>
     </div>
