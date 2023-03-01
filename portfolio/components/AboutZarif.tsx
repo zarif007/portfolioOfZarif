@@ -27,6 +27,9 @@ const focusedBars = [
 const AboutZarif = () => {
   const [counter, setCounter] = useState<number>(0);
 
+  const [isButtonClicked, setIsButtonClicked] = useState<boolean>(false);
+
+
   const [currentFocusedBar, setCurrentFocusedBar] = useState(focusedBars[counter]);
 
   const animateRef = useRef<any>();
@@ -81,9 +84,33 @@ const AboutZarif = () => {
           </div>
         </div>
 
-        <button className="my-6 px-16 py-4 rounded-sm font-bold text-md text-gray-200 border-2 gradient1-border hover:bg-opacity-5 hover:bg-[#ff6932]">
-          DO
+        <button onClick={() => setIsButtonClicked(!isButtonClicked)} className="mt-6 px-16 py-4 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded">
+          <p className="gradient1-text">DO</p>
         </button>
+        
+        
+        {
+          isButtonClicked && <div className="ml-0">
+              
+             <div className="flex space-x-3">
+              <div className="flex flex-col items-center">
+                <div className="py-8 border-2 w-0 border-gray-700 -mr-8"></div>
+                <button onClick={() => setIsButtonClicked(true)} className="px-6 py-2 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded">
+                  <p className="gradient1-text">Get CV</p>
+                </button>
+                
+              </div>
+              <div className="flex flex-col">
+                <div className="py-10 border-2 w-0 border-gray-700 -mt-2 -mb-2 -ml-6" style={{ transform: 'rotate(-215deg)' }}></div>
+                <button onClick={() => setIsButtonClicked(true)} className=" px-6 py-2 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded">
+                  <p className="gradient1-text">Connect</p>
+                </button>
+              </div>
+            </div>
+          </div>
+        }
+
+        
       </div>
 
       <div className="w-1/3 border-4 gradient1-border hidden lg:inline mr-4">
