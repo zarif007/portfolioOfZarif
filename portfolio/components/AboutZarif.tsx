@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import autoAnimate from "@formkit/auto-animate";
 import { BsGithub } from "react-icons/bs";
 import { TfiWorld } from "react-icons/tfi";
+import { GrContact } from "react-icons/gr";
 
 {
   /* 1st = #171717
@@ -89,9 +90,8 @@ const AboutZarif = () => {
         </button>
         
         
-        {
-          isButtonClicked && <div className="ml-0">
-              
+        {/* {
+          isButtonClicked && <div className="ml-0"> 
              <div className="flex space-x-3">
               <div className="flex flex-col items-center">
                 <div className="py-8 border-2 w-0 border-gray-700 -mr-8"></div>
@@ -107,6 +107,26 @@ const AboutZarif = () => {
                 </button>
               </div>
             </div>
+          </div>
+        } */}
+
+        {
+          isButtonClicked && <div className="flex ml-8">
+            <div className="flex flex-col">
+              <div className="flex ">
+                <div className="border-l-4 border-b-4 py-6 px-4 gradient1-border rounded-bl	"></div>
+                <button onClick={() => setIsButtonClicked(true)} className="flex text-white justify-center items-center px-8 py-1 mt-4 -mb-5 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded">
+                  <p className="gradient1-text">Get Resume</p>
+                </button>
+              </div>
+              <div className="flex">
+                <div className="border-l-4 border-b-4  py-4 px-4 mb-6 gradient1-border rounded-bl -mt-1"></div>
+                <button onClick={() => setIsButtonClicked(true)} className="flex text-white justify-center items-center space-x-1 px-8 py-3 mt-8 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded">
+                  <p className="gradient1-text">Contact</p>
+                </button>
+              </div>
+            </div>
+            <div></div>
           </div>
         }
 
