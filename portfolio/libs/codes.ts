@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+export const aboutZarif = `import React, { useEffect, useRef, useState } from "react";
 import autoAnimate from "@formkit/auto-animate";
 import { BsGithub } from "react-icons/bs";
 import { TfiWorld } from "react-icons/tfi";
 import { GrContact } from "react-icons/gr";
 import Code from "./Code";
-import { aboutZarif } from "@/libs/codes";
 
 {
   /* 1st = #171717
@@ -129,7 +128,7 @@ const AboutZarif = () => {
 
           <div className="w-1/3 border-4 gradient1-border hidden lg:inline mr-4">
             <img
-              src={`${imgArr[Math.floor(Math.random() * 2)]}`}
+              src={imgArr[Math.floor(Math.random() * 2)]}}
               className=""
               alt="banner"
               style={{ objectFit: "cover", height: 400, width: 500 }}
@@ -137,13 +136,11 @@ const AboutZarif = () => {
           </div>
         </>
       ) : (
-        <div className="overflow-hidden p-1 rounded my-12 flex items-start">
-          <Code language="javascript" code={aboutZarif} animated show />
-        </div>
-        
+        <Code />
       )}
     </div>
   );
 };
 
 export default AboutZarif;
+`
