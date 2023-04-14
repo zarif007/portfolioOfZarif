@@ -7,6 +7,9 @@ import Layout from '@/components/Layout';
 import { useRecoilState } from 'recoil';
 import { StatusState } from '@/atoms/StatusStateAtom';
 import { Router } from 'next/router';
+import 'simplebar-react/dist/simplebar.min.css'
+
+
 
 const inter = Inter({ subsets: ['latin'] })
 

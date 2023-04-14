@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .unselectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -56,4 +55,21 @@
   ); */
   border-radius: 12px;
   border: 3px solid var(--primary);
+}
+
+code {
+  counter-reset: line;
+}
+
+.code-line {
+  counter-increment: line;
+  position: relative;
+  display: block;
+  margin-left: 1.5rem;
+}
+
+.code-line:before {
+  content: counter(line);
+  position: absolute;
+  margin-left: -1.5rem;
 }

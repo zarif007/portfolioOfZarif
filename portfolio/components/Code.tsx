@@ -2,15 +2,14 @@
 
 import React, { FC, useEffect, useState } from "react";
 import Highlight, { defaultProps, type Language } from "prism-react-renderer";
-
 import darkTheme from "prism-react-renderer/themes/nightOwl";
-import lightTheme from "prism-react-renderer/themes/nightOwlLight";
-import { Prism } from "@mantine/prism";
-
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-
+import { Prism } from '@mantine/prism';
+import { Text } from "@mantine/core";
+import SideBar from "./SideBar";
+import SimpleBar from "simplebar-react";
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { Editor } from "@monaco-editor/react";
 
 interface CodeProps {
   code: string;
@@ -50,8 +49,16 @@ const Code: FC<CodeProps> = ({
 
   const theme = darkTheme;
 
-  return <SyntaxHighlighter lineProps={{style: {wordBreak: 'break-all', whiteSpace: 'pre-wrap', paddingBottom: 8}}}
-  wrapLines={true} children={code} showLineNumbers={true} language={language} style={dracula} />
+  return (
+    <Editor
+        height="100vh"
+        width="100%"
+        theme="vs-dark"
+        defaultLanguage="javascript"
+        defaultValue={code}
+        className="mt-12 text-lg"
+      />
+  );
 };
 
 export default Code;

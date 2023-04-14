@@ -3,6 +3,8 @@ import React, { ReactNode } from 'react'
 import SideBar from './SideBar'
 import { useRecoilState } from 'recoil';
 import OpenTabs from './OpenTabs';
+import Code from './Code';
+import { aboutZarif } from '@/libs/codes';
 
 const Layout = ({ children }: { children: ReactNode }) => {
 
@@ -13,12 +15,12 @@ const Layout = ({ children }: { children: ReactNode }) => {
         <div className={`${isFileBarOpen ? 'lg:w-2/12' : 'lg:w-1/12'} sm:w-2/12 w-3/12`}>
             <SideBar />
         </div>
-        <div className={`w-full ${isFileBarOpen ? 'lg:w-10/12 max-w-full' : 'lg:w-11/12 max-w-full'} mx-auto flex`}>
+        <div className='mx-auto '>
           <OpenTabs />
-          <div className='mx-auto'>
-              {children}
-          </div>
+          {/* {children} */}
+          
         </div>
+        <Code language="tsx" code={aboutZarif} animated show />
     </div>
   )
 }

@@ -5,6 +5,8 @@ import { TfiWorld } from "react-icons/tfi";
 import { GrContact } from "react-icons/gr";
 import Code from "./Code";
 import { aboutZarif } from "@/libs/codes";
+import SimpleBar from "simplebar-react";
+
 
 {
   /* 1st = #171717
@@ -35,7 +37,7 @@ const AboutZarif = () => {
     focusedBars[counter]
   );
 
-  const [showCode, setShowCode] = useState<boolean>(true);
+  const [showCode, setShowCode] = useState<boolean>(false);
 
   const animateRef = useRef<any>();
 
@@ -55,7 +57,7 @@ const AboutZarif = () => {
   }, [counter]);
 
   return (
-    <div className="unselectable flex items-center justify-between ">
+    <div className="unselectable flex items-center justify-between ml-4 md:ml-0">
       {!showCode ? (
         <>
           <div className=" md:my-40 mt-12  mr-6 ">
@@ -137,9 +139,7 @@ const AboutZarif = () => {
           </div>
         </>
       ) : (
-        <div className="overflow-hidden p-1 rounded my-12 flex items-start" style={{ marginLeft: "1px", marginRight: '1px' }}>
-          <Code language="tsx" code={aboutZarif} animated show />
-        </div>
+        <Code language="tsx" code={aboutZarif} animated show />
         
       )}
     </div>
