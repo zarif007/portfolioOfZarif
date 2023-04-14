@@ -137,8 +137,8 @@ const AboutZarif = () => {
           </div>
         </>
       ) : (
-        <div className="overflow-hidden p-1 rounded my-12 flex items-start">
-          <Code language="javascript" code={aboutZarif} animated show />
+        <div className="overflow-hidden p-1 rounded my-12 flex items-start" style={{ marginLeft: "1px", marginRight: '1px' }}>
+          <Code language="tsx" code={aboutZarif} animated show />
         </div>
         
       )}

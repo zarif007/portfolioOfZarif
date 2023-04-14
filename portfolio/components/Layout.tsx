@@ -13,9 +13,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
         <div className={`${isFileBarOpen ? 'lg:w-2/12' : 'lg:w-1/12'} sm:w-2/12 w-3/12`}>
             <SideBar />
         </div>
-        <div className={`w-full ${isFileBarOpen ? 'lg:w-10/12 max-w-6xl' : 'lg:w-11/12 max-w-7xl'} mx-auto flex`}>
+        <div className={`w-full ${isFileBarOpen ? 'lg:w-10/12 max-w-full' : 'lg:w-11/12 max-w-full'} mx-auto flex`}>
           <OpenTabs />
-          <div className=''>
+          <div className='mx-auto'>
               {children}
           </div>
         </div>

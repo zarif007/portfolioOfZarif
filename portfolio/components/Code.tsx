@@ -7,6 +7,11 @@ import darkTheme from "prism-react-renderer/themes/nightOwl";
 import lightTheme from "prism-react-renderer/themes/nightOwlLight";
 import { Prism } from "@mantine/prism";
 
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+
 interface CodeProps {
   code: string;
   show: boolean;
@@ -45,7 +50,8 @@ const Code: FC<CodeProps> = ({
 
   const theme = darkTheme;
 
-  return <Prism withLineNumbers language="tsx">{code}</Prism>;
+  return <SyntaxHighlighter lineProps={{style: {wordBreak: 'break-all', whiteSpace: 'pre-wrap', paddingBottom: 8}}}
+  wrapLines={true} children={code} showLineNumbers={true} language={language} style={dracula} />
 };
 
 export default Code;
