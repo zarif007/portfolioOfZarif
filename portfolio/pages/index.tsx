@@ -8,6 +8,7 @@ import { useRecoilState } from 'recoil';
 import { StatusState } from '@/atoms/StatusStateAtom';
 import { Router } from 'next/router';
 import 'simplebar-react/dist/simplebar.min.css'
+import { aboutZarif } from '@/libs/codes';
 
 
 
@@ -23,7 +24,7 @@ export default function Home() {
 
 
   return (
-    <div className='bg-[#2E2E2E]'>
+    <div className='bg-[#1e1e1e]'>
       <Head>
         <title>Zarif</title>
         <meta name="description" content="About Zarif" />
@@ -31,7 +32,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <Layout> 
+      <Layout code={aboutZarif}> 
         <AboutZarif />
       </Layout>
 

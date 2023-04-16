@@ -25,7 +25,7 @@ const OpenTabs = () => {
           return (
             <div
               key={index}
-              className={`  ${tab.url !== currentTabUrl ? 'bg-[#171717] border-[#171717] text-gray-200' : 'border-[#ff6932] text-[#ff6932] bg-[#2E2E2E]'}  border-t-4   cursor-pointer  hover:text-[#ff6932] px-6 py-2 font-semibold my-auto flex justify-center items-center space-x-4`}
+              className={`  ${tab.url !== currentTabUrl ? 'bg-[#2d2d30] border-[#2d2d30] text-gray-200' : 'border-[#ff6932] text-[#ff6932] bg-[#1e1e1e]'}  border-t-4   cursor-pointer  hover:text-[#ff6932] px-6 py-2 font-semibold my-auto flex justify-center items-center space-x-4`}
             >
               <Link href={tab.url} className="flex space-x-1 justify-center items-center">
                 <img src={tab.icon} className="h-4" alt="icon" />

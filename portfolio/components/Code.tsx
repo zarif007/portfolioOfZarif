@@ -3,12 +3,6 @@
 import React, { FC, useEffect, useState } from "react";
 import Highlight, { defaultProps, type Language } from "prism-react-renderer";
 import darkTheme from "prism-react-renderer/themes/nightOwl";
-import { Prism } from '@mantine/prism';
-import { Text } from "@mantine/core";
-import SideBar from "./SideBar";
-import SimpleBar from "simplebar-react";
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { Editor } from "@monaco-editor/react";
 
 interface CodeProps {
@@ -26,7 +20,6 @@ const Code: FC<CodeProps> = ({
   animationDelay,
   animated,
 }) => {
-
   const [text, setText] = useState(animated ? "" : code);
 
   useEffect(() => {
@@ -51,13 +44,17 @@ const Code: FC<CodeProps> = ({
 
   return (
     <Editor
-        height="100vh"
-        width="100%"
-        theme="vs-dark"
-        defaultLanguage="javascript"
-        defaultValue={code}
-        className="mt-12 text-lg"
-      />
+      height="100vh"
+      width="100%"
+      theme="vs-dark"
+      defaultLanguage={language}
+      defaultValue={code}
+      className="mt-2 mb-10 text-lg"
+      options={{
+        scrollBeyondLastLine: false,
+        fontSize: 16,
+      }}
+    />
   );
 };
 

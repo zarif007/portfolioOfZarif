@@ -7,7 +7,6 @@ import Code from "./Code";
 import { aboutZarif } from "@/libs/codes";
 import SimpleBar from "simplebar-react";
 
-
 {
   /* 1st = #171717
             2nd =  #2E2E2E
@@ -37,8 +36,6 @@ const AboutZarif = () => {
     focusedBars[counter]
   );
 
-  const [showCode, setShowCode] = useState<boolean>(false);
-
   const animateRef = useRef<any>();
 
   useEffect(() => {
@@ -57,91 +54,84 @@ const AboutZarif = () => {
   }, [counter]);
 
   return (
-    <div className="unselectable flex items-center justify-between ml-4 md:ml-0">
-      {!showCode ? (
-        <>
-          <div className=" md:my-40 mt-12  mr-6 ">
-            <p className="gradient1-text font-bold md:text-xl text-md">
-              Hello world, I am
-            </p>
+    <div className="unselectable flex items-center justify-center ml-4 md:ml-0">
+      <div className=" md:my-40 mt-12  mr-6 ">
+        <p className="gradient1-text font-bold md:text-xl text-md">
+          Hello world, I am
+        </p>
 
-            <h1 className="md:text-9xl text-7xl font-extrabold gradient1-text">
-              Zarif
-            </h1>
-            <h1 className="md:text-5xl text-3xl font-extrabold gradient1-text">
-              I build web apps
-            </h1>
+        <h1 className="md:text-9xl text-7xl font-extrabold gradient1-text">
+          Zarif
+        </h1>
+        <h1 className="md:text-5xl text-3xl font-extrabold gradient1-text">
+          I build web apps
+        </h1>
 
-            <div className="pt-4 text-gray-200 font-semibold lg:text-lg text-sm max-w-xl">
-              <p>
-                I’m a software developer specializing in building (and
-                occasionally designing) web applications. Currently,
-              </p>
-              <div ref={animateRef}>
-                <div className="py-4 px-2 border-2 border-gray-700 bg-[#171717] flex items-center justify-between rounded my-3">
-                  <div>
-                    <p className="lg:text-sm text-xs">
-                      {currentFocusedBar.split("/")[0]}
-                    </p>
-                    <p className="lg:text-xl text-lg gradient1-text">
-                      {currentFocusedBar.split("/")[1]}
-                    </p>
-                  </div>
-                  <div className="flex space-x-2">
-                    <BsGithub className="w-6 h-6 cursor-pointer" />
-                    <TfiWorld className="w-6 h-6 cursor-pointer" />
-                  </div>
-                </div>
+        <div className="pt-4 text-gray-200 font-semibold lg:text-lg text-sm max-w-xl">
+          <p>
+            I’m a software developer specializing in building (and occasionally
+            designing) web applications. Currently,
+          </p>
+          <div ref={animateRef}>
+            <div className="py-4 px-2 border-2 border-gray-700 bg-[#171717] flex items-center justify-between rounded my-3">
+              <div>
+                <p className="lg:text-sm text-xs">
+                  {currentFocusedBar.split("/")[0]}
+                </p>
+                <p className="lg:text-xl text-lg gradient1-text">
+                  {currentFocusedBar.split("/")[1]}
+                </p>
+              </div>
+              <div className="flex space-x-2">
+                <BsGithub className="w-6 h-6 cursor-pointer" />
+                <TfiWorld className="w-6 h-6 cursor-pointer" />
               </div>
             </div>
+          </div>
+        </div>
 
-            <button
-              onClick={() => setIsButtonClicked(!isButtonClicked)}
-              className="mt-6 px-16 py-4 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded"
-            >
-              <p className="gradient1-text">GET</p>
-            </button>
+        <button
+          onClick={() => setIsButtonClicked(!isButtonClicked)}
+          className="mt-6 px-16 py-4 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded"
+        >
+          <p className="gradient1-text">GET</p>
+        </button>
 
-            {isButtonClicked && (
-              <div className="flex ml-8">
-                <div className="flex flex-col">
-                  <div className="flex ">
-                    <div className="border-l-4 border-b-4 py-6 px-4 gradient1-border rounded-bl	"></div>
-                    <button
-                      onClick={() => setIsButtonClicked(true)}
-                      className="flex text-white justify-center items-center px-8 py-1 mt-4 -mb-5 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded"
-                    >
-                      <p className="gradient1-text">Resume</p>
-                    </button>
-                  </div>
-                  <div className="flex">
-                    <div className="border-l-4 border-b-4  py-4 px-4 mb-6 gradient1-border rounded-bl -mt-1"></div>
-                    <button
-                      onClick={() => setIsButtonClicked(true)}
-                      className="flex text-white justify-center items-center space-x-1 px-8 py-3 mt-8 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded"
-                    >
-                      <p className="gradient1-text">Contacted</p>
-                    </button>
-                  </div>
-                </div>
-                <div></div>
+        {isButtonClicked && (
+          <div className="flex ml-8">
+            <div className="flex flex-col">
+              <div className="flex ">
+                <div className="border-l-4 border-b-4 py-6 px-4 gradient1-border rounded-bl	"></div>
+                <button
+                  onClick={() => setIsButtonClicked(true)}
+                  className="flex text-white justify-center items-center px-8 py-1 mt-4 -mb-5 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded"
+                >
+                  <p className="gradient1-text">Resume</p>
+                </button>
               </div>
-            )}
+              <div className="flex">
+                <div className="border-l-4 border-b-4  py-4 px-4 mb-6 gradient1-border rounded-bl -mt-1"></div>
+                <button
+                  onClick={() => setIsButtonClicked(true)}
+                  className="flex text-white justify-center items-center space-x-1 px-8 py-3 mt-8 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded"
+                >
+                  <p className="gradient1-text">Contacted</p>
+                </button>
+              </div>
+            </div>
+            <div></div>
           </div>
+        )}
+      </div>
 
-          <div className="w-1/3 border-4 gradient1-border hidden lg:inline mr-4">
-            <img
-              src={`${imgArr[Math.floor(Math.random() * 2)]}`}
-              className=""
-              alt="banner"
-              style={{ objectFit: "cover", height: 400, width: 500 }}
-            />
-          </div>
-        </>
-      ) : (
-        <Code language="tsx" code={aboutZarif} animated show />
-        
-      )}
+      {/* <div className="w-1/4 border-4 gradient1-border hidden lg:inline mr-4">
+        <img
+          src={`${imgArr[Math.floor(Math.random() * 2)]}`}
+          className=""
+          alt="banner"
+          style={{ objectFit: "cover", height: 400, width: 600 }}
+        />
+      </div> */}
     </div>
   );
 };
