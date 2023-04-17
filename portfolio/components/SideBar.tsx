@@ -32,7 +32,7 @@ const SideBar = () => {
             orange = #ff6932*/}
       
       {/* social sidebar */}
-      <div className='flex flex-col justify-between bg-[#2E2E2E] border-r border-[#171717]' style={{ maxHeight: "95vh" }}>
+      <div className='flex flex-col justify-between bg-[#2E2E2E] border-r border-[#171717]' style={{ maxHeight: "97vh" }}>
         <div className='flex flex-col space-y-4'>
             <div className={`${ isFileBarOpen && 'bg-[#ff6932]' } hidden lg:inline`} onClick={() => setIsFileBarOpen(!isFileBarOpen)}>
                 <BsFiles className={styles.firstSideBarIcons} />  
