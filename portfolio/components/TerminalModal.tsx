@@ -5,16 +5,16 @@ import { AiFillFolderOpen, AiOutlineCloseCircle } from "react-icons/ai";
 import { VscChromeMinimize } from "react-icons/vsc";
 import matrix from "../public/matrix.gif";
 import Image from "next/image";
-import getUrlLocation from './../hooks/getUrlLocation';
-import { folderStructure } from './../folder-structure';
-import searchOnFolderStructure from './../hooks/searchOnFolderStructure';
-import { FileInterface } from './../interfaces/FileInterface';
-import { useRouter } from 'next/router';
+import getUrlLocation from "./../hooks/getUrlLocation";
+import { folderStructure } from "./../folder-structure";
+import searchOnFolderStructure from "./../hooks/searchOnFolderStructure";
+import { FileInterface } from "./../interfaces/FileInterface";
+import { useRouter } from "next/router";
 
 interface commandInterface {
   location: string;
   command: string;
-  result: (string | any);
+  result: string | any;
 }
 
 const TerminalModal = ({
@@ -24,19 +24,18 @@ const TerminalModal = ({
   isTerminalOpen: boolean;
   setIsTerminalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-
   const router = useRouter();
 
   const [commands, setCommands] = useState<commandInterface[]>([]);
   const [currentCommand, setCurrentCommand] = useState<string>("");
 
-  const [location, setLocation] = useState<string>('');
+  const [location, setLocation] = useState<string>("");
 
   const [showMatrix, setShowMatrix] = useState<boolean>(false);
 
   useEffect(() => {
-    setLocation(getUrlLocation())
-  }, [])
+    setLocation(getUrlLocation());
+  }, []);
 
   const handleAddCommand = (event: any) => {
     if (event.key === "Enter") {
@@ -51,23 +50,24 @@ const TerminalModal = ({
         },
       ]);
 
-      const parent: (FileInterface | null) = searchOnFolderStructure(location)
+      const parent: FileInterface | null = searchOnFolderStructure(location);
 
-      if(currentCommand.toLowerCase() === 'clear'){
-        setCommands([])
-      } else if(currentCommand.toLowerCase() === 'exit') {
-        setCommands([])
-        setIsTerminalOpen(false)
-      } else if(currentCommand.toLowerCase() === 'ls') {
+      if (currentCommand.toLowerCase() === "clear") {
+        setCommands([]);
+      } else if (currentCommand.toLowerCase() === "exit") {
+        setCommands([]);
+        setIsTerminalOpen(false);
+      } else if (currentCommand.toLowerCase() === "ls") {
         setCommands([
           ...commands,
           {
             location: `user@portfolio-of-Zarif${location}:~$`,
             command: currentCommand,
-            result: !parent?.children ? 'no file' : 
-            <div className="flex flex-wrap space-x-6">
-              {
-                parent.children.map((child: FileInterface, index: number) => {
+            result: !parent?.children ? (
+              "no file"
+            ) : (
+              <div className="flex flex-wrap space-x-6">
+                {parent.children.map((child: FileInterface, index: number) => {
                   return (
                     <div key={index} className="flex space-x-1 items-center">
                       {child.type === "folder" ? (
@@ -75,26 +75,30 @@ const TerminalModal = ({
                           <AiFillFolderOpen className="h-5 w-5" />
                         </>
                       ) : (
-                        <Image src={child.icon} alt="icon" width={20} height={20} />
+                        <Image
+                          src={child.icon}
+                          alt="icon"
+                          width={20}
+                          height={20}
+                        />
                       )}
                       <p className="unselectable">/{child.name}</p>
                     </div>
-                  )
-                })
-              }
-            </div>,
+                  );
+                })}
+              </div>
+            ),
           },
         ]);
-      } else if(currentCommand.toLowerCase().startsWith('cd')) {
-        const childParam = currentCommand.toLowerCase().split(' ')[1];
+      } else if (currentCommand.toLowerCase().startsWith("cd")) {
+        const childParam = currentCommand.toLowerCase().split(" ")[1];
 
         let found = false;
-        if(parent?.children) {
-
+        if (parent?.children) {
           parent.children?.map((child: FileInterface) => {
-            console.log(`/${child.name}` === childParam)
-            if(`/${child.name}` === childParam) {
-              router.push(child.url)
+            console.log(`/${child.name}` === childParam);
+            if (`/${child.name}` === childParam) {
+              router.push(child.url);
               found = true;
               setCommands([
                 ...commands,
@@ -106,19 +110,20 @@ const TerminalModal = ({
               ]);
               return;
             }
-          })
+          });
         }
 
-        !found && setCommands([
-          ...commands,
-          {
-            location: `user@portfolio-of-Zarif${location}:~$`,
-            command: currentCommand,
-            result: "No file or folder",
-          },
-        ]);
-      } 
-      
+        !found &&
+          setCommands([
+            ...commands,
+            {
+              location: `user@portfolio-of-Zarif${location}:~$`,
+              command: currentCommand,
+              result: "No file or folder",
+            },
+          ]);
+      }
+
       setCurrentCommand("");
 
       setShowMatrix(true);
@@ -177,18 +182,24 @@ const TerminalModal = ({
                 </div>
 
                 {showMatrix ? (
-                  <Image src="https://i.ibb.co/ZM520Vg/matrix.gif" alt="matrix" width={1000} height={1000} blurDataURL="https://i.ibb.co/ZM520Vg/matrix.gif"
-                  placeholder='blur' />
+                  <Image
+                    src="https://i.ibb.co/ZM520Vg/matrix.gif"
+                    alt="matrix"
+                    width={1000}
+                    height={1000}
+                    blurDataURL="https://i.ibb.co/ZM520Vg/matrix.gif"
+                    placeholder="blur"
+                  />
                 ) : (
                   <div className="border-t-2 border-gray-700  bg-[#171717]">
                     <div className="p-2 text-md font-semibold pb-12">
                       <ShowPreviousCommands commands={commands} />
 
-                      <p className="text-[#ff6932]">
+                      <p className="text-[#007acc]">
                         {`user@portfolio-of-Zarif${location}:~$`}
                       </p>
                       <div className="flex items-start space-x-2">
-                        <p className="text-[#ff6932] mt-1">{">"}</p>
+                        <p className="text-[#007acc] mt-1">{">"}</p>
                         <input
                           className={`w-full pb-4 text-md bg-[#171717] text-gray-200 font-semibold mt-1 px-1 focus:outline-0 rounded-md`}
                           defaultValue={currentCommand}
@@ -222,7 +233,7 @@ const ShowPreviousCommands = ({
       {commands.map((command: commandInterface, index: number) => {
         return (
           <div key={index}>
-            <p className="text-[#ff6932]">
+            <p className="text-[#007acc]">
               {command.location}{" "}
               <span className="text-gray-200">{command.command}</span>
             </p>

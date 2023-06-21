@@ -10,7 +10,7 @@ import SimpleBar from "simplebar-react";
 {
   /* 1st = #171717
             2nd =  #2E2E2E
-            orange = #ff6932*/
+            orange = #007acc*/
 }
 
 const imgArr = [
@@ -94,28 +94,28 @@ const AboutZarif = () => {
           onClick={() => setIsButtonClicked(!isButtonClicked)}
           className="mt-6 px-16 py-4 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded"
         >
-          <p className="gradient1-text">GET</p>
+          <p className="text-blue-500">GET</p>
         </button>
 
         {isButtonClicked && (
           <div className="flex ml-8">
             <div className="flex flex-col">
               <div className="flex ">
-                <div className="border-l-4 border-b-4 py-6 px-4 gradient1-border rounded-bl	"></div>
+                <div className="border-l-2 border-b-2 py-6 px-4 border-gray-700 rounded-bl	"></div>
                 <button
                   onClick={() => setIsButtonClicked(true)}
                   className="flex text-white justify-center items-center px-8 py-1 mt-4 -mb-5 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded"
                 >
-                  <p className="gradient1-text">Resume</p>
+                  <p className="text-blue-500">Resume</p>
                 </button>
               </div>
               <div className="flex">
-                <div className="border-l-4 border-b-4  py-4 px-4 mb-6 gradient1-border rounded-bl -mt-1"></div>
+                <div className="border-l-2 border-b-2  py-4 px-4 mb-6 border-gray-700 rounded-bl -mt-1"></div>
                 <button
                   onClick={() => setIsButtonClicked(true)}
                   className="flex text-white justify-center items-center space-x-1 px-8 py-3 mt-8 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded"
                 >
-                  <p className="gradient1-text">Contacted</p>
+                  <p className="text-blue-500">Connected</p>
                 </button>
               </div>
             </div>

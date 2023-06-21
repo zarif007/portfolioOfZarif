@@ -3,28 +3,28 @@
 @tailwind utilities;
 
 .unselectable {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .gradient1-text {
-  background: linear-gradient(90deg, rgba(233,86,120,1) 20%, rgba(255,105,50,1) 42%, rgba(240,148,131,1) 77%, rgba(250,183,149,1) 97%);
+  background: radial-gradient(circle, rgba(63,94,251,1) 19%, rgba(252,70,107,1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient1-border {
   border-image-slice: 1;
-  border-image-source: linear-gradient(90deg, rgba(233,86,120,1) 20%, rgba(255,105,50,1) 42%, rgba(240,148,131,1) 77%, rgba(250,183,149,1) 97%);
+  border-image-source: radial-gradient(circle, rgba(63,94,251,1) 19%, rgba(252,70,107,1) 100%);
 }
 
 :root {
   --primary: #171717;
-  --secondary: #ff6932;
+  --secondary: #007acc;
 }
 
 /* Scrollbar styles */
@@ -46,7 +46,7 @@
 
 *::-webkit-scrollbar-thumb {
   background-color: var(--secondary);
-/*   background: repeating-linear-gradient(
+  /*   background: repeating-linear-gradient(
     45deg,
     var(--secondary),
     var(--secondary) 5px,

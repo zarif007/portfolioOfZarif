@@ -11,7 +11,7 @@ import SimpleBar from "simplebar-react";
 {
   /* 1st = #171717
             2nd =  #2E2E2E
-            orange = #ff6932*/
+            orange = #007acc*/
 }
 
 const imgArr = [
@@ -147,8 +147,7 @@ const AboutZarif = () => {
 };
 
 export default AboutZarif;
-`
-
+`;
 
 export const personality = `import React from "react";
 import Head from "next/head";
@@ -179,7 +178,7 @@ const Personality = () => {
 };
 
 export default Personality;
-`
+`;
 
 export const skillsTechnology = `import React from 'react'
 import Head from 'next/head';
@@ -208,4 +207,4 @@ const Skills = () => {
 }
 
 export default Skills
-`
+`;
