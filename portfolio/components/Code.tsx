@@ -52,7 +52,7 @@ const Code: FC<CodeProps> = ({
       className="mt-2 mb-10 text-lg"
       options={{
         scrollBeyondLastLine: false,
-        fontSize: 16,
+        fontSize: 18,
       }}
     />
   );

@@ -12,14 +12,14 @@
 }
 
 .gradient1-text {
-  background: radial-gradient(circle, rgba(63,94,251,1) 19%, rgba(252,70,107,1) 100%);
+  background: linear-gradient(90deg, rgba(125,161,221,1) 22%, rgba(230,122,169,1) 56%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient1-border {
   border-image-slice: 1;
-  border-image-source: radial-gradient(circle, rgba(63,94,251,1) 19%, rgba(252,70,107,1) 100%);
+  border-image-source: linear-gradient(90deg, rgba(125,161,221,1) 22%, rgba(230,122,169,1) 56%);
 }
 
 :root {

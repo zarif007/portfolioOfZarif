@@ -5,14 +5,31 @@ import { useRecoilState } from "recoil";
 import { OpenTabsState } from "../atoms/OpenTabsAtom";
 import { TabInterface } from "./../interfaces/TabInterface";
 import getUrlLocation from "./../hooks/getUrlLocation";
+import addToOpenTabList from "@/libs/addToOpenTabList";
+import { folderStructure } from "@/folder-structure";
+import { FileInterface } from "@/interfaces/FileInterface";
 
 const OpenTabs = () => {
   const [openTabs, setOpenTabs] = useRecoilState<TabInterface[]>(OpenTabsState);
 
   const [currentTabUrl, setCurrentTabUrl] = useState<string>("");
 
+  const getCurrentFileAndAddToTabList = (files: any, currentUrl: string) => {
+    files.map((child: FileInterface) => {
+      if (child.url === currentUrl) {
+        setOpenTabs(addToOpenTabList(child, openTabs));
+        return;
+      }
+      child.type === "folder" &&
+        getCurrentFileAndAddToTabList(child.children, currentUrl);
+    });
+  };
+
   useEffect(() => {
-    setCurrentTabUrl(getUrlLocation());
+    const currentUrl = getUrlLocation();
+    setCurrentTabUrl(currentUrl);
+
+    getCurrentFileAndAddToTabList(folderStructure.children, currentUrl);
   }, [openTabs]);
 
   const removeFromList = (url: string) => {

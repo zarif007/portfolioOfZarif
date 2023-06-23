@@ -11,7 +11,6 @@ import FileBarModal from "./FileBarModal";
 import FileBar from "./FileBar";
 import { useRecoilState } from "recoil";
 import { fileBarState } from "./../atoms/FileBarAtom";
-import NumberLineBar from "./NumberLineBar";
 
 const SideBar = () => {
   const [isTerminalOpen, setIsTerminalOpen] = useState<boolean>(false);
@@ -27,10 +26,6 @@ const SideBar = () => {
   };
   return (
     <div className="flex h-full min-h-screen fixed z-20">
-      {/* 1st = #171717
-            2nd =  #2E2E2E
-            orange = #007acc*/}
-
       {/* social sidebar */}
       <div
         className="flex flex-col justify-between bg-[#2E2E2E] border-r border-[#171717]"

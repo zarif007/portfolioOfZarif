@@ -7,6 +7,7 @@ import { BsChevronRight } from "react-icons/bs";
 import { useRouter } from "next/router";
 import { TabInterface } from "./../interfaces/TabInterface";
 import { FileInterface } from "./../interfaces/FileInterface";
+import addToOpenTabList from "@/libs/addToOpenTabList";
 
 const DisplayFolders = ({ file }: { file: FileInterface }) => {
   const [showChildren, setShowChildren] = useState(true);
@@ -15,18 +16,13 @@ const DisplayFolders = ({ file }: { file: FileInterface }) => {
 
   const router = useRouter();
 
-  const addToOpenTabList = (file: any) => {
-    const flag = openTabs.find((x) => x.url === file.url);
-    !flag && setOpenTabs([...openTabs, file]);
-  };
-
   return (
     <div className="block">
       <div
         onClick={() => {
           if (file.type === "folder") setShowChildren(!showChildren);
           else {
-            addToOpenTabList(file);
+            setOpenTabs(addToOpenTabList(file, openTabs));
             router.push(`${file.url}`);
           }
         }}
@@ -36,10 +32,10 @@ const DisplayFolders = ({ file }: { file: FileInterface }) => {
         }  cursor-pointer rounded-r my-1`}
       >
         {file.type === "folder" ? (
-          <>
+          <React.Fragment>
             <BsChevronRight className={`${showChildren && "rotate-90"}`} />
             <AiFillFolderOpen className="h-6 w-6" />
-          </>
+          </React.Fragment>
         ) : (
           <Image src={file.icon} alt="icon" width={20} height={20} />
         )}

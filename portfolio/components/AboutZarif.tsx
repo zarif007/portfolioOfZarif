@@ -92,9 +92,9 @@ const AboutZarif = () => {
 
         <button
           onClick={() => setIsButtonClicked(!isButtonClicked)}
-          className="mt-6 px-16 py-4 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded"
+          className="mt-6 px-16 py-4 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded text-[#7da1dd] hover:text-[#e67aa9]"
         >
-          <p className="text-blue-500">GET</p>
+          <p className="">GET</p>
         </button>
 
         {isButtonClicked && (
@@ -104,18 +104,18 @@ const AboutZarif = () => {
                 <div className="border-l-2 border-b-2 py-6 px-4 border-gray-700 rounded-bl	"></div>
                 <button
                   onClick={() => setIsButtonClicked(true)}
-                  className="flex text-white justify-center items-center px-8 py-1 mt-4 -mb-5 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded"
+                  className="flex justify-center text-[#7da1dd] hover:text-[#e67aa9] items-center px-8 py-1 mt-4 -mb-5 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded"
                 >
-                  <p className="text-blue-500">Resume</p>
+                  <p className="">Resume</p>
                 </button>
               </div>
               <div className="flex">
                 <div className="border-l-2 border-b-2  py-4 px-4 mb-6 border-gray-700 rounded-bl -mt-1"></div>
                 <button
                   onClick={() => setIsButtonClicked(true)}
-                  className="flex text-white justify-center items-center space-x-1 px-8 py-3 mt-8 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded"
+                  className="flex justify-center text-[#7da1dd] hover:text-[#e67aa9] items-center space-x-1 px-8 py-3 mt-8 font-bold text-md border-gray-700 bg-[#171717] border-2 rounded"
                 >
-                  <p className="text-blue-500">Connected</p>
+                  <p className="">Connected</p>
                 </button>
               </div>
             </div>
