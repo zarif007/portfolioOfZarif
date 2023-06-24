@@ -32,7 +32,7 @@ const Layout = ({ children, code }: { children: ReactNode; code: string }) => {
             <div className="relative">
               <div
                 onClick={() => setShowCode(false)}
-                className="cursor-pointer bottom-1 right-0 flex justify-center items-center space-x-1 z-10 my-6 mx-3 bg-blue-500 text-black px-3 py-1 rounded fixed"
+                className="cursor-pointer bottom-1 right-0 flex justify-center items-center space-x-1 z-10 my-6 mx-3 gradient1-bg text-white px-3 py-1 rounded fixed"
               >
                 <FiPlay />
                 <p>Run Code</p>

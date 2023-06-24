@@ -3,12 +3,11 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { AiFillFolderOpen, AiOutlineCloseCircle } from "react-icons/ai";
 import { VscChromeMinimize } from "react-icons/vsc";
-import matrix from "../public/matrix.gif";
 import Image from "next/image";
-import getUrlLocation from "./../hooks/getUrlLocation";
-import { folderStructure } from "./../folder-structure";
-import searchOnFolderStructure from "./../hooks/searchOnFolderStructure";
-import { FileInterface } from "./../interfaces/FileInterface";
+import getUrlLocation from "../hooks/getUrlLocation";
+import { folderStructure } from "../folder-structure";
+import searchOnFolderStructure from "../hooks/searchOnFolderStructure";
+import { FileInterface } from "../interfaces/FileInterface";
 import { useRouter } from "next/router";
 
 interface commandInterface {

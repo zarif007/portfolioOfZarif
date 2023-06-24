@@ -1,0 +1,19 @@
+{
+  /* 1st = #171717
+            2nd =  #2E2E2E
+            orange = #007acc*/
+}
+
+const imgArr = [
+  "https://i.seadn.io/gae/WXxBdMz5M26O5QWkwTINGYTdGvWq3edErejzPRwm2Vgobln0v3GPKsjpvnA-yNTFQDIai6ztKdBuD1NiR92bA9tLBfTmv0aH-XysMAY?auto=format&w=1000",
+  "https://i.seadn.io/gae/p9jPZKQ04Vm86g9p4nzJKgi9Ap2T7s07quXvV2W4IDf7S0ckTH8l2-FuH_43it1YhPeCvK_di70XSlsVTul5LsIOuuHrPykhgZKE?auto=format&w=1000",
+];
+
+{/* <div className="w-1/4 border-4 gradient1-border hidden lg:inline mr-4">
+        <img
+          src={`${imgArr[Math.floor(Math.random() * 2)]}`}
+          className=""
+          alt="banner"
+          style={{ objectFit: "cover", height: 400, width: 600 }}
+        />
+      </div> */}

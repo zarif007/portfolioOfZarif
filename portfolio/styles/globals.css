@@ -16,6 +16,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.gradient1-bg {
+  background: linear-gradient(90deg, rgba(125,161,221,1) 22%, rgba(230,122,169,1) 56%);
+}
 
 .gradient1-border {
   border-image-slice: 1;

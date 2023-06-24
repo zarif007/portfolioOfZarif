@@ -1,18 +1,13 @@
 import Head from 'next/head'
-import { Inter } from '@next/font/google'
-import SideBar from '@/components/SideBar'
 import FootBar from '@/components/FootBar'
-import AboutZarif from './../components/AboutZarif';
 import Layout from '@/components/Layout';
 import { useRecoilState } from 'recoil';
 import { StatusState } from '@/atoms/StatusStateAtom';
 import { Router } from 'next/router';
 import 'simplebar-react/dist/simplebar.min.css'
 import { aboutZarif } from '@/libs/codes';
+import AboutZarif from '@/components/AboutZarif.Page';
 
-
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
