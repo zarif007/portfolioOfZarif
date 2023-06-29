@@ -24,7 +24,7 @@ const FileBar = ({
   };
   return (
     <div
-      className={`flex flex-col space-y-1 bg-[#1e1e1e] min-w-48 ${height} z-20 pb-12`}
+      className={`flex flex-col space-y-1 bg-[#171717] min-w-48 ${height} z-20 pb-12`}
     >
       <div
         className={`text-white font-semibold text-center py-4 border-b-2 border-[#2E2E2E] flex justify-between items-center px-4`}
