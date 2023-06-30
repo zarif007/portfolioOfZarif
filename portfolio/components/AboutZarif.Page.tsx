@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import LargeHeading from "./ui/LargeHeading";
 import Paragraph from "./ui/Paragraph";
 import { Button } from "./ui/Button";
 import FocusedBar from "./Focused.Bar";
 import GetButtonGroup from "./GetButtonGroup";
-import Image from "next/image";
 
 const AboutZarif = () => {
   const [isButtonClicked, setIsButtonClicked] = useState<boolean>(false);

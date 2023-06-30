@@ -16,7 +16,7 @@ const OpenTabs = () => {
 
   const getCurrentFileAndAddToTabList = (files: any, currentUrl: string) => {
     files.map((child: FileInterface) => {
-      if (child.url === currentUrl) {
+      if (child.url === currentUrl && child.type === 'file') {
         setOpenTabs(addToOpenTabList(child, openTabs));
         return;
       }

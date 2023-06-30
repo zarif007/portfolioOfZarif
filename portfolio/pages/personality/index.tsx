@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import FootBar from "../../components/FootBar";
 import Layout from "@/components/Layout";
-import { personality } from "@/libs/codes";
+import { skillsTechnology } from "@/libs/codes";
 
 const Personality = () => {
   return (
@@ -14,7 +14,7 @@ const Personality = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout code={personality}>
+      <Layout code={skillsTechnology}>
         <div className=" text-gray-200 text-sm mt-12">
           I’m a software engineer specializing in building (and occasionally
           designing) exceptional digital experiences. Currently, I’m focused on

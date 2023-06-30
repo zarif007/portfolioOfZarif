@@ -2,6 +2,12 @@ import { FC } from "react";
 
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/libs/utils";
+import { Press_Start_2P } from '@next/font/google'
+
+const press_Start_2P = Press_Start_2P({
+  subsets: ['latin'],
+  weight: ['400']
+})
 
 export const headingVariants = cva(
   "text-black dark:text-white font-extrabold leading-tight tracking-tighter",
@@ -30,7 +36,7 @@ const LargeHeading: FC<LargeHeadingProps> = ({
   ...props
 }) => {
   return (
-    <h1 {...props} className={cn(headingVariants({ size, className }))}>
+    <h1 {...props} className={`${cn(headingVariants({ size, className }))}`}>
       {children}
     </h1>
   );
