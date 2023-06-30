@@ -11,17 +11,18 @@ import { FileInterface } from "@/interfaces/FileInterface";
 
 const OpenTabs = () => {
   const [openTabs, setOpenTabs] = useRecoilState<TabInterface[]>(OpenTabsState);
+  const [tabOnHover, setTabOnHover] = useState<TabInterface | null>(null);
 
   const [currentTabUrl, setCurrentTabUrl] = useState<string>("");
 
-  const getCurrentFileAndAddToTabList = (files: any, currentUrl: string) => {
+  const getCurrentUrlAndAddToTabList = (files: any, currentUrl: string) => {
     files.map((child: FileInterface) => {
-      if (child.url === currentUrl && child.type === 'file') {
+      if (child.url === currentUrl && child.type === "file") {
         setOpenTabs(addToOpenTabList(child, openTabs));
         return;
       }
       child.type === "folder" &&
-        getCurrentFileAndAddToTabList(child.children, currentUrl);
+        getCurrentUrlAndAddToTabList(child.children, currentUrl);
     });
   };
 
@@ -29,7 +30,7 @@ const OpenTabs = () => {
     const currentUrl = getUrlLocation();
     setCurrentTabUrl(currentUrl);
 
-    getCurrentFileAndAddToTabList(folderStructure.children, currentUrl);
+    getCurrentUrlAndAddToTabList(folderStructure.children, currentUrl);
   }, [openTabs]);
 
   const removeFromList = (url: string) => {
@@ -42,6 +43,8 @@ const OpenTabs = () => {
           return (
             <div
               key={index}
+              onMouseEnter={() => setTabOnHover(tab)}
+              onMouseLeave={() => setTabOnHover(null)}
               className={`  ${
                 tab.url !== currentTabUrl
                   ? "bg-[#2d2d30] border-[#2d2d30] text-gray-200"
@@ -55,10 +58,15 @@ const OpenTabs = () => {
                 <img src={tab.icon} className="h-4" alt="icon" />
                 <p>{tab.name}</p>
               </Link>
-              <RxCross2
-                className="text-white"
-                onClick={() => removeFromList(tab.url)}
-              />
+              {(tabOnHover && tabOnHover.url === tab.url) ||
+              currentTabUrl === tab.url ? (
+                <RxCross2
+                  className="text-white"
+                  onClick={() => removeFromList(tab.url)}
+                />
+              ) : (
+                <div className="w-4"></div>
+              )}
             </div>
           );
         })}

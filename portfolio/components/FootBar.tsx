@@ -10,7 +10,7 @@ const FootBar = () => {
   const os: 'windows' | 'macos' | 'ios' | 'android' | 'linux' | 'undetermined' = useOs()
   const [status, setStatus] = useRecoilState(StatusState);
   return (
-    <div className="fixed bottom-0 bg-[#007acc] w-full p-[0.5] z-30 flex space-x-3 md:px-4 px-2 font-semibold">
+    <div className="fixed bottom-0 bg-[#007acc] w-full p-[0.5] z-30 flex space-x-3 md:px-3 px-2 font-semibold">
       <p>{status}</p>
       <p>{os != 'undetermined' && osWithIcon(os)}</p>
     </div>
