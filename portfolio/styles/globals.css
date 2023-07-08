@@ -25,6 +25,13 @@
   border-image-source: linear-gradient(90deg, rgba(125,161,221,1) 22%, rgba(230,122,169,1) 56%);
 }
 
+.circle {
+  width: 200px;
+  height: 200px;
+  background-color: #f0f0f0;
+  border-radius: 50% / 35% 65% 60% 40%;
+}
+
 :root {
   --primary: #171717;
   --secondary: #007acc;

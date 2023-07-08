@@ -4,13 +4,15 @@ import Paragraph from "./ui/Paragraph";
 import { Button } from "./ui/Button";
 import FocusedBar from "./Focused.Bar";
 import GetButtonGroup from "./GetButtonGroup";
+import FillBar from "./Fill.Bar";
 
 const AboutZarif = () => {
   const [isButtonClicked, setIsButtonClicked] = useState<boolean>(false);
 
   return (
     <div className="unselectable flex items-center justify-center ml-4 md:ml-0">
-      <div className=" md:my-40 my-12  mr-6 ">
+      <div className=" md:mt-40 mb-24 my-12  mr-6 ">
+        {/* <FillBar text="Hiii!!" /> */}
         <LargeHeading className="gradient1-text" size="xl">
           Hello world, I am
         </LargeHeading>
