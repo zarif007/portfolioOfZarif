@@ -56,12 +56,10 @@ const PersonalityPage = () => {
         </Paragraph>
         <GrayBorder>
           <div className="flex justify-center space-x-4 items-center">
-            <LargeHeading size="xl" className="gradient1-text">
+            <Paragraph className="gradient1-text font-bold">
               {currentPersonalityTrait.name}
-            </LargeHeading>
-            <LargeHeading size="xl">
-              {currentPersonalityTrait.emoji}
-            </LargeHeading>
+            </Paragraph>
+            <Paragraph>{currentPersonalityTrait.emoji}</Paragraph>
           </div>
         </GrayBorder>
       </div>
