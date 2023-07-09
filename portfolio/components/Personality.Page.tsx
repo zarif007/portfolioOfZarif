@@ -41,10 +41,8 @@ const PersonalityPage = () => {
   }, [counter]);
   return (
     <div className="unselectable flex justify-center ml-4 md:ml-0">
-      <div className="my-12 mt-6 md:my-24">
-        <LargeHeading size="xl" className="gradient1-text">
-          Here comes,
-        </LargeHeading>
+      <div className="my-12 mt-6 md:my-24 mr-6">
+        <Paragraph className="gradient1-text font-bold">Here comes,</Paragraph>
         <LargeHeading size="xl3" className="gradient1-text uppercase">
           Personality
         </LargeHeading>
