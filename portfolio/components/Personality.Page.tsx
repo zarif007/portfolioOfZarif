@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import LargeHeading from "./ui/LargeHeading";
 import Paragraph from "./ui/Paragraph";
 import GrayBorder from "./ui/GrayBorder";
+import duck from "public/duck.gif";
+import Image from "next/image";
+import CompFlicker from "./Comp.Flicker";
 
 const personalityTraits = [
   {
@@ -23,25 +26,25 @@ const personalityTraits = [
 ];
 
 const PersonalityPage = () => {
-  const [counter, setCounter] = useState<number>(0);
-
-  const [currentPersonalityTrait, setCurrentPersonalityTrait] = useState(
-    personalityTraits[counter]
-  );
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentPersonalityTrait(
-        personalityTraits[(counter + 1) % personalityTraits.length]
+  const flickerElements = (): React.ReactNode[] => {
+    const elements = personalityTraits.map((trait, index) => {
+      return (
+        <div key={index} className="flex justify-center space-x-4 items-center">
+          <Paragraph className="gradient1-text font-bold">
+            {trait.name}
+          </Paragraph>
+          <Paragraph>{trait.emoji}</Paragraph>
+        </div>
       );
-      setCounter(counter + 1);
-    }, 2000);
+    });
 
-    return () => clearInterval(interval);
-  }, [counter]);
+    return elements;
+  };
+
   return (
     <div className="unselectable flex justify-center ml-4 md:ml-0">
       <div className="my-12 mt-6 md:my-24 mr-6">
+        <Image src={duck} alt="icon" height={80} width={80} />
         <Paragraph className="gradient1-text font-bold">Here comes,</Paragraph>
         <LargeHeading size="xl3" className="gradient1-text uppercase">
           Personality
@@ -52,14 +55,7 @@ const PersonalityPage = () => {
           <span className="gradient1-text">++Overestimation</span> &&{" "}
           <span className="gradient1-text">++Fantasy</span>)
         </Paragraph>
-        <GrayBorder>
-          <div className="flex justify-center space-x-4 items-center">
-            <Paragraph className="gradient1-text font-bold">
-              {currentPersonalityTrait.name}
-            </Paragraph>
-            <Paragraph>{currentPersonalityTrait.emoji}</Paragraph>
-          </div>
-        </GrayBorder>
+        <CompFlicker list={flickerElements()} />
       </div>
     </div>
   );

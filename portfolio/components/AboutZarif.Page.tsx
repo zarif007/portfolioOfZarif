@@ -4,7 +4,8 @@ import Paragraph from "./ui/Paragraph";
 import { Button } from "./ui/Button";
 import FocusedBar from "./Focused.Bar";
 import GetButtonGroup from "./GetButtonGroup";
-import FillBar from "./Fill.Bar";
+import Image from "next/image";
+import pandaCoding from 'public/pandaCoding.gif'
 
 const AboutZarif = () => {
   const [isButtonClicked, setIsButtonClicked] = useState<boolean>(false);
@@ -12,7 +13,7 @@ const AboutZarif = () => {
   return (
     <div className="unselectable flex items-center justify-center ml-4 md:ml-0">
       <div className=" md:mt-40 mb-24 my-12  mr-6 ">
-        {/* <FillBar text="Hiii!!" /> */}
+        <Image src={pandaCoding} alt="icon" height={80} width={80} />
         <LargeHeading className="gradient1-text" size="xl">
           Hello world, I am
         </LargeHeading>

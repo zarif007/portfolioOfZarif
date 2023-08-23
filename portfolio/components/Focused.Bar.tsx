@@ -4,31 +4,19 @@ import { BsGithub } from "react-icons/bs";
 import { TfiWorld } from "react-icons/tfi";
 import GrayBorder from "./ui/GrayBorder";
 import LargeHeading from "./ui/LargeHeading";
+import CompFlicker from "./Comp.Flicker";
 
 const FocusedBar = () => {
-  const [counter, setCounter] = useState<number>(0);
-
-  const [currentFocusedBar, setCurrentFocusedBar] = useState(
-    focusedBars[counter]
-  );
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentFocusedBar(focusedBars[(counter + 1) % focusedBars.length]);
-      setCounter(counter + 1);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [counter]);
-  return (
-    <GrayBorder>
-      <div className="flex items-center justify-between">
+  const flickerElements = (): React.ReactNode[] => {
+    const elements = focusedBars.map((bar, index) => {
+      return (
+        <div key={index} className="flex items-center justify-between">
         <div>
           <p className="lg:text-sm text-xs">
-            {currentFocusedBar.split("/")[0]}
+            {bar.split("/")[0]}
           </p>
           <LargeHeading size="xl" className="lg:text-xl text-lg gradient1-text">
-            {currentFocusedBar.split("/")[1]}
+            {bar.split("/")[1]}
           </LargeHeading>
         </div>
         <div className="flex space-x-2">
@@ -36,7 +24,13 @@ const FocusedBar = () => {
           <TfiWorld className="w-6 h-6 cursor-pointer" />
         </div>
       </div>
-    </GrayBorder>
+      );
+    });
+
+    return elements;
+  };
+  return (
+    <CompFlicker list={flickerElements()} />
   );
 };
 

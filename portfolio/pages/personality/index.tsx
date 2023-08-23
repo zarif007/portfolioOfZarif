@@ -16,7 +16,9 @@ const Personality = () => {
       </Head>
 
       <Layout code={personality}>
-        <PersonalityPage />
+        <div className="py-24">
+          <PersonalityPage />
+        </div>
       </Layout>
 
       <FootBar />
