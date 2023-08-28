@@ -31,7 +31,7 @@ export default function Home() {
 
       <Layout code={aboutZarif}>
         <AboutZarif />
-        <PersonalityPage />
+        <PersonalityPage withDetails={false} />
       </Layout>
 
       <FootBar />

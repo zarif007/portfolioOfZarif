@@ -5,16 +5,17 @@ import FileBar from "./FileBar";
 import { useRecoilState } from "recoil";
 import { fileBarState } from "./../atoms/FileBarAtom";
 import {
-  PiFacebookLogoDuotone,
-  PiFilesDuotone,
   PiGearDuotone,
-  PiGithubLogoDuotone,
-  PiInstagramLogoDuotone,
-  PiLinkedinLogoDuotone,
-  PiMagnifyingGlassDuotone,
   PiMicrophoneDuotone,
   PiTerminalWindowDuotone,
 } from "react-icons/pi";
+import { FiGithub } from "react-icons/fi";
+import { BsFiles, BsSearch } from "react-icons/bs";
+import { AiTwotoneSetting } from "react-icons/ai";
+import { AiOutlineLinkedin } from "react-icons/ai";
+import { AiOutlineFacebook } from "react-icons/ai";
+import { IoTerminal } from "react-icons/io5";
+import { IoLogoInstagram } from "react-icons/io5";
 
 const SideBar = () => {
   const [isTerminalOpen, setIsTerminalOpen] = useState<boolean>(false);
@@ -40,7 +41,7 @@ const SideBar = () => {
             className={`${isFileBarOpen && "bg-[#007acc]"} hidden lg:inline`}
             onClick={() => setIsFileBarOpen(!isFileBarOpen)}
           >
-            <PiFilesDuotone className={styles.firstSideBarIcons} />
+            <BsFiles className={styles.firstSideBarIcons} />
           </div>
 
           <div
@@ -49,22 +50,22 @@ const SideBar = () => {
             } inline lg:hidden`}
             onClick={() => setIsFileBarModalOpen(!isFileBarModalOpen)}
           >
-            <PiFilesDuotone className={styles.firstSideBarIcons} />
+            <BsFiles className={styles.firstSideBarIcons} />
           </div>
           <div className="">
-            <PiMagnifyingGlassDuotone className={styles.firstSideBarIcons} />
+            <BsSearch className={styles.firstSideBarIcons} />
           </div>
           <div className="">
-            <PiGithubLogoDuotone className={styles.firstSideBarIcons} />
+            <FiGithub className={styles.firstSideBarIcons} />
           </div>
           <div className="">
-            <PiFacebookLogoDuotone className={styles.firstSideBarIcons} />
+            <AiOutlineLinkedin className={styles.firstSideBarIcons} />
           </div>
           <div className="">
-            <PiLinkedinLogoDuotone className={styles.firstSideBarIcons} />
+            <AiOutlineFacebook className={styles.firstSideBarIcons} />
           </div>
           <div className="">
-            <PiInstagramLogoDuotone className={styles.firstSideBarIcons} />
+            <IoLogoInstagram className={styles.firstSideBarIcons} />
           </div>
         </div>
 

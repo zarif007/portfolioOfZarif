@@ -5,27 +5,34 @@ import GrayBorder from "./ui/GrayBorder";
 import duck from "public/duck.gif";
 import Image from "next/image";
 import CompFlicker from "./Comp.Flicker";
+import { Button } from "./ui/Button";
+import { useRouter } from "next/router";
 
 const personalityTraits = [
   {
     name: "Self Motivated",
     emoji: "💪🔥",
+    description: `Driven, always on task.`,
   },
   {
     name: "Adaptable",
     emoji: "🔄🔀",
+    description: `Swiftly shifts, agile coder.`,
   },
   {
     name: "Problem Solver",
     emoji: "🧩🔧",
+    description: `Loves puzzles, finds fixes.`,
   },
   {
     name: "Detail Oriented",
     emoji: "🧠🔍",
+    description: `Precision-focused, code sleuth.`,
   },
 ];
 
-const PersonalityPage = () => {
+const PersonalityPage = ({ withDetails }: { withDetails: boolean }) => {
+  const router = useRouter();
   const flickerElements = (): React.ReactNode[] => {
     const elements = personalityTraits.map((trait, index) => {
       return (
@@ -34,6 +41,19 @@ const PersonalityPage = () => {
             {trait.name}
           </Paragraph>
           <Paragraph>{trait.emoji}</Paragraph>
+        </div>
+      );
+    });
+
+    return elements;
+  };
+  const flickerElementsDescription = (): React.ReactNode[] => {
+    const elements = personalityTraits.map((trait, index) => {
+      return (
+        <div key={index} className="flex justify-center space-x-4 items-center">
+          <Paragraph className="gradient1-text font-bold">
+            {trait.description}
+          </Paragraph>
         </div>
       );
     });
@@ -56,6 +76,20 @@ const PersonalityPage = () => {
           <span className="gradient1-text">++Fantasy</span>)
         </Paragraph>
         <CompFlicker list={flickerElements()} />
+        {withDetails ? (
+          <React.Fragment>
+            <div className="border-l-4 animate-pulse border-dotted border-gray-700 h-8 w-0 mx-auto"></div>
+            <CompFlicker list={flickerElementsDescription()} />
+          </React.Fragment>
+        ) : (
+          <Button
+            variant="default"
+            onClick={() => router.push("/personality")}
+            className="mt-6 px-16 py-4"
+          >
+            <p className="">More?</p>
+          </Button>
+        )}
       </div>
     </div>
   );
