@@ -18,21 +18,21 @@ const Layout = ({ children, code }: { children: ReactNode; code: string }) => {
 
   return (
     <div className="flex h-full min-h-screen ">
-      <div className={`lg:w-1/12 sm:w-2/12 w-3/12`}>
+      <div className={`w-[60px]`}>
         <SideBar />
       </div>
-      <div className={`mx-auto ${!showCode && "max-w-8xl w-full"}`}>
+      <div className={`mx-auto ${!showCode && "w-full"}`}>
         <OpenTabs />
         {!showCode && children}
       </div>
 
       {showCode && (
-        <div className="w-full flex flex-col">
+        <div className={`w-full flex flex-col`}>
           <div className="mt-10">
             <div className="relative">
               <div
                 onClick={() => setShowCode(false)}
-                className="cursor-pointer bottom-1 right-0 flex justify-center items-center space-x-1 z-10 my-6 mx-3 bg-[#007acc] text-gray-900 font-semibold px-3 py-1 rounded fixed"
+                className="cursor-pointer bottom-1 right-0 flex justify-center items-center space-x-1 z-10 my-6 mx-3 bg-[#007acc] text-slate-300 font-semibold px-3 py-1 rounded fixed"
               >
                 <FiPlay />
                 <p>Run Code</p>

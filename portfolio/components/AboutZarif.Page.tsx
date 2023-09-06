@@ -5,7 +5,7 @@ import { Button } from "./ui/Button";
 import FocusedBar from "./Focused.Bar";
 import GetButtonGroup from "./GetButtonGroup";
 import Image from "next/image";
-import pandaCoding from 'public/pandaCoding.gif'
+import charizard from 'public/charizard.gif'
 
 const AboutZarif = () => {
   const [isButtonClicked, setIsButtonClicked] = useState<boolean>(false);
@@ -13,7 +13,7 @@ const AboutZarif = () => {
   return (
     <div className="unselectable flex items-center justify-center ml-4 md:ml-0">
       <div className=" md:mt-40 mb-24 my-12  mr-6 ">
-        <Image src={pandaCoding} alt="icon" height={80} width={80} />
+        <Image src={charizard} alt="icon" height={160} width={160} />
         <LargeHeading className="gradient1-text" size="xl">
           Hello world, I am
         </LargeHeading>

@@ -1,8 +1,7 @@
 import { focusedBars } from "@/utils/focusedBars";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BsGithub } from "react-icons/bs";
 import { TfiWorld } from "react-icons/tfi";
-import GrayBorder from "./ui/GrayBorder";
 import LargeHeading from "./ui/LargeHeading";
 import CompFlicker from "./Comp.Flicker";
 
